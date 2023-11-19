@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mysticalagrartifacts",
+  "name": "Mystical AgrArtifacts",
+  "description": "A small addon for mystical agriculture. Adding missing things in my opinion",
+  "version": "0.2.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["EtherCD"],
+  "credits": "Just a little enthusiast",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["mysticalagriculture"]
+}
+]
