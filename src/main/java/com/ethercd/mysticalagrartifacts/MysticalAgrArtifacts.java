@@ -29,7 +29,7 @@ public class MysticalAgrArtifacts
     @SidedProxy(clientSide = "com.ethercd.mysticalagrartifacts.proxy.ClientProxy", serverSide = "com.ethercd.mysticalagrartifacts.proxy.ServerProxy")
     public static CommonProxy proxy;
 
-    public static Logger logger;
+    private static Logger logger;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
