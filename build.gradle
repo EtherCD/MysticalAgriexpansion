@@ -13,9 +13,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'eth.ethercd.maxagriculture' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'maxagriculture'
+version = '0.2.2'
+group = 'com.ethercd.mysticalagriartifacts' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'Mystical AgriArtifacts'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 

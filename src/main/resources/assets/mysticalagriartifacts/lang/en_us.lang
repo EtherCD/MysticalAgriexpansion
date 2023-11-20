@@ -1,0 +1,17 @@
+itemGroup.mysticalagriartifacts=Mystical AgrArtifacts
+
+# Essence
+item.prosperity_essence.name=Essence Prosperity
+
+# Seeds
+item.prosperity_seeds.name=Seeds Prosperity
+
+# Blocks
+tile.prosperity_crop.name=Prosperity Crop
+tile.tier2_growth_accelerator.name=Prudentium Growth Accelerator
+tile.tier3_growth_accelerator.name=Intermedium Growth Accelerator
+tile.tier4_growth_accelerator.name=Superium Growth Accelerator
+tile.tier5_growth_accelerator.name=Supremium Growth Accelerator
+
+# Tooltips
+tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
