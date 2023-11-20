@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "mysticalagriartifacts:blocks/tier6_growth_accelerator"
+  }
+}

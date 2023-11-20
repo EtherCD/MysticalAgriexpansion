@@ -3,6 +3,7 @@ package com.ethercd.mysticalagriartifacts.items;
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriartifacts.MysticalAgrArtifacts;
 import com.ethercd.mysticalagriartifacts.crops.ModCommonCrop;
+import com.ethercd.mysticalagriartifacts.lib.ModChecker;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
@@ -13,6 +14,9 @@ import java.util.List;
  */
 public class ModItems {
     public static final List<Item> ITEM_MODEL_REGISTER = new ArrayList<>();
+
+    public static final ItemBase itemInsaniumWateringCan = new ItemWateringCan("insanium", 13, 6, 0.5f);
+
 
 //    public static final Item nuclearCraftingSeeds = new ItemBase("nuclear_crafting_seeds");
 //    public static final Item nuclearInferiumEssence = new ItemBase("nuclear_inferium_essence");
@@ -35,6 +39,10 @@ public class ModItems {
 
     public static void init() {
         final ModRegistry registry = MysticalAgrArtifacts.REGISTRY;
+
+        if (ModChecker.INSANIUM) registry.register(itemInsaniumWateringCan, itemInsaniumWateringCan.getName());
+
+        ItemCrafting.init(registry);
 
         for (ModCommonCrop type : ModCommonCrop.values()) {
             if (type.isEnabled()) {

@@ -6,12 +6,21 @@ item.prosperity_essence.name=Essence Prosperity
 # Seeds
 item.prosperity_seeds.name=Seeds Prosperity
 
-# Blocks
+# Watering Can
+item.insanium_watering_can.name=§5Insanium Watering Can
+item.crafting_insanium_fert_core.name=§5Insanium Fertilization Core
+item.crafting_insanium_theoretical_water.name=§5Insanium Theoretical Infinite Water Source
+
+# Crops
 tile.prosperity_crop.name=Prosperity Crop
-tile.tier2_growth_accelerator.name=Prudentium Growth Accelerator
-tile.tier3_growth_accelerator.name=Intermedium Growth Accelerator
-tile.tier4_growth_accelerator.name=Superium Growth Accelerator
-tile.tier5_growth_accelerator.name=Supremium Growth Accelerator
+
+# Blocks
+tile.tier2_growth_accelerator.name=§aPrudentium Growth Accelerator
+tile.tier3_growth_accelerator.name=§6Intermedium Growth Accelerator
+tile.tier4_growth_accelerator.name=§bSuperium Growth Accelerator
+tile.tier5_growth_accelerator.name=§cSupremium Growth Accelerator
+tile.tier6_growth_accelerator.name=§5Insanium Growth Accelerator
 
 # Tooltips
 tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
+tooltip.watering_can=Range:

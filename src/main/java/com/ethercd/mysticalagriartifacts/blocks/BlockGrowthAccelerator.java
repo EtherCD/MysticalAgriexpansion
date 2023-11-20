@@ -1,8 +1,10 @@
 package com.ethercd.mysticalagriartifacts.blocks;
 
 import com.blakebr0.cucumber.iface.IEnableable;
+import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.ethercd.mysticalagriartifacts.lib.ModChecker;
 import com.ethercd.mysticalagriartifacts.lib.Tooltips;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -39,22 +41,23 @@ public class BlockGrowthAccelerator extends BlockBase implements IEnableable {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
         String color;
-        switch (this.tier) {
-            default:
+        switch(this.tier){
             case 2:
-                color = "§a";
+                tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + Colors.GREEN + this.accelerate + "%");
                 break;
             case 3:
-                color = "§6";
+                tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + Colors.GOLD + this.accelerate + "%");
                 break;
             case 4:
-                color = "§b";
+                tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + Colors.AQUA + this.accelerate + "%");
                 break;
             case 5:
-                color = "§c";
+                tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + Colors.RED + this.accelerate + "%");
+                break;
+            case 6:
+                tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + Colors.DARK_PURPLE + this.accelerate + "%");
                 break;
         }
-        tooltip.add(Tooltips.GROWTH_ACCELERATOR + " " + color + this.accelerate + "%");
     }
 
     @Override
@@ -95,21 +98,26 @@ public class BlockGrowthAccelerator extends BlockBase implements IEnableable {
     }
 
     public enum AcceleratorTier {
-        TIER2(125, 2),
-        TIER3(150, 3),
-        TIER4(175, 4),
-        TIER5(200, 5);
+        TIER2(150, 2, true),
+        TIER3(200, 3, true),
+        TIER4(250, 4, true),
+        TIER5(300, 5, true),
+        TIER6(500, 6, ModChecker.INSANIUM);
 
         private BlockGrowthAccelerator block;
         private final int tier;
+        private final boolean active;
 
-        AcceleratorTier(int accelerate, int tier) {
+        AcceleratorTier(int accelerate, int tier, boolean active) {
             this.block = new BlockGrowthAccelerator(accelerate, tier);
             this.tier = tier;
+            this.active = active;
         }
 
         public void register(ModRegistry registry) {
-            registry.register(this.block, "tier" + this.tier + "_growth_accelerator");
+            if (this.active) {
+                registry.register(this.block, "tier" + this.tier + "_growth_accelerator");
+            }
         }
 
     }

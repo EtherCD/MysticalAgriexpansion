@@ -5,11 +5,20 @@ item.prosperity_essence.name=Эссенция процветариума
 
 # Seeds
 item.prosperity_seeds.name=Семена процветариума
+
+# Watering Cans
+item.insanium_watering_can.name=§5Инсаниумная лейка
+item.crafting_insanium_fert_core.name=§5Инсаниумное ядро удобрения
+item.crafting_insanium_theoretical_water.name=§5Инсаниумный теоретический бесконечный источник воды
+
+# Blocks
 tile.tier2_growth_accelerator.name=§aПрудентиумный Ускоритель роста
 tile.tier3_growth_accelerator.name=§6Интермедиумный Ускоритель роста
 tile.tier4_growth_accelerator.name=§bСупериумный Ускоритель роста
 tile.tier5_growth_accelerator.name=§cСупремиумный Ускоритель роста
+tile.tier6_growth_accelerator.name=§5Инсаниумный Ускоритель роста
 
 
 # Tooltips
 tooltip.growth_accelerator=Растения над ним растут быстрее. Быстрее чем обычный на
+tooltip.watering_can=Дальность:
