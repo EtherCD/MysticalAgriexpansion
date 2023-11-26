@@ -1,0 +1,56 @@
+itemGroup.mysticalagriexpansion=Mystical Agriexpansion
+
+# Essence
+item.prosperity_essence.name=Эссенция процветариума
+item.mechanical_essence.name=§7Механическая эссенция
+
+# Seeds
+item.prosperity_seeds.name=Семена процветариума
+item.mechanical_seeds.name=Механические семена
+
+# Crafting Items
+item.insanium_fert_core.name=§5Инсаниумное ядро удобрения
+item.insanium_theoretical_water.name=§5Инсаниумный теоретический бесконечный источник воды
+item.exemplary_gear.name=§7Образцовая шестеренка
+item.electronic_seeds.name=§cБазовое электронное семя
+item.nuclear_seeds.name=§aБазовое ядерное семя
+item.alloy_seeds.name=§7Базовое семя сплавов
+
+# Tiered Items
+item.tier_1_electronic_seeds.name=§eУровень 1 Создание электронного семени
+item.tier_1_nuclear_seeds.name=§eУровень 1 Создание ядерного семени
+item.tier_1_alloy_seeds.name=§eУровень 1 Создание спалавного семени
+item.tier_2_electronic_seeds.name=§aУровень 2 Создание электронного семени
+item.tier_2_nuclear_seeds.name=§aУровень 2 Создание ядерного семени
+item.tier_2_alloy_seeds.name=§aУровень 2 Создание спалавного семени
+item.tier_3_electronic_seeds.name=§6Уровень 3 Создание электронного семени
+item.tier_3_nuclear_seeds.name=§6TУровень 3 Создание ядерного семени
+item.tier_3_alloy_seeds.name=§6Уровень 3 Создание спалавного семени
+item.tier_4_electronic_seeds.name=§6Уровень 4 Создание электронного семени
+item.tier_4_nuclear_seeds.name=§6TУровень 4 Создание ядерного семени
+item.tier_4_alloy_seeds.name=§6Уровень 4 Создание спалавного семени
+item.tier_5_electronic_seeds.name=§6Уровень 5 Создание электронного семени
+item.tier_5_nuclear_seeds.name=§6TУровень 5 Создание ядерного семени
+item.tier_5_alloy_seeds.name=§6Уровень 5 Создание спалавного семени
+item.tier_6_electronic_seeds.name=§6Уровень 6 Создание электронного семени
+item.tier_6_nuclear_seeds.name=§6TУровень 6 Создание ядерного семени
+item.tier_6_alloy_seeds.name=§6Уровень 6 Создание спалавного семени
+
+# Watering Cans
+item.insanium_watering_can.name=§5Инсаниумная лейка
+
+# Crops
+tile.prosperity_crop.name=Процветариумная культура
+tile.mechanical_crop.name=Механическая культура
+
+# Blocks
+tile.tier2_growth_accelerator.name=§aПрудентиумный Ускоритель роста
+tile.tier3_growth_accelerator.name=§6Интермедиумный Ускоритель роста
+tile.tier4_growth_accelerator.name=§bСупериумный Ускоритель роста
+tile.tier5_growth_accelerator.name=§cСупремиумный Ускоритель роста
+tile.tier6_growth_accelerator.name=§5Инсаниумный Ускоритель роста
+
+
+# Tooltips
+tooltip.growth_accelerator=Растения над ним растут быстрее. Быстрее чем обычный на
+tooltip.watering_can=Дальность:

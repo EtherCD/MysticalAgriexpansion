@@ -104,7 +104,7 @@ sourceSets { main { output.resourcesDir = output.classesDir } }
 jar {
     manifest {
         attributes([
-            "Specification-Title": "Mystical AgrArtifacts",
+            "Specification-Title": "Mystical Agriculture Expansion",
             "Specification-Vendor": "EtherCD",
             "Specification-Version": "0.1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

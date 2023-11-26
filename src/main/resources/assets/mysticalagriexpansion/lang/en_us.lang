@@ -1,0 +1,55 @@
+itemGroup.mysticalagriexpansion=Mystical Agriexpansion
+
+# Essence
+item.prosperity_essence.name=Essence Prosperity
+item.mechanical_essence.name=Mechanical Essence
+
+# Seeds
+item.prosperity_seeds.name=Seeds Prosperity
+item.mechanical_seeds.name=Mechanical Seeds
+
+# Crafting Items
+item.insanium_fert_core.name=§5Insanium Fertilization Core
+item.insanium_theoretical_water.name=§5Insanium Theoretical Infinite Water Source
+item.exemplary_gear.name=§7Exemplary Gear
+item.electronic_seeds.name=§cBase Electronic Seed
+item.nuclear_seeds.name=§aBase Nuclear Seed
+item.alloy_seeds.name=§7Base Alloy Seed
+
+# Tiered Items
+item.tier_1_electronic_seeds.name=§eTier 1 Crafting Electronic Seed
+item.tier_1_nuclear_seeds.name=§eTier 1 Crafting Nuclear Seed
+item.tier_1_alloy_seeds.name=§eTier 1 Crafting Alloy Seed
+item.tier_2_electronic_seeds.name=§aTier 2 Crafting Electronic Seed
+item.tier_2_nuclear_seeds.name=§aTier 2 Crafting Nuclear Seed
+item.tier_2_alloy_seeds.name=§aTier 2 Crafting Alloy Seed
+item.tier_3_electronic_seeds.name=§6Tier 3 Crafting Electronic Seed
+item.tier_3_nuclear_seeds.name=§6Tier 3 Crafting Nuclear Seed
+item.tier_3_alloy_seeds.name=§6Tier 3 Crafting Alloy Seed
+item.tier_4_electronic_seeds.name=§bTier 4 Crafting Electronic Seed
+item.tier_4_nuclear_seeds.name=§bTier 4 Crafting Nuclear Seed
+item.tier_4_alloy_seeds.name=§bTier 4 Crafting Alloy Seed
+item.tier_5_electronic_seeds.name=§cTier 5 Crafting Electronic Seed
+item.tier_5_nuclear_seeds.name=§cTier 5 Crafting Nuclear Seed
+item.tier_5_alloy_seeds.name=§cTier 5 Crafting Alloy Seed
+item.tier_6_electronic_seeds.name=§5Tier 6 Crafting Electronic Seed
+item.tier_6_nuclear_seeds.name=§5Tier 6 Crafting Nuclear Seed
+item.tier_6_alloy_seeds.name=§5Tier 6 Crafting Alloy Seed
+
+# Watering Can
+item.insanium_watering_can.name=§5Insanium Watering Can
+
+# Crops
+tile.prosperity_crop.name=Prosperity Crop
+tile.mechanical_crop.name=Mechanical Crop
+
+# Blocks
+tile.tier2_growth_accelerator.name=§aPrudentium Growth Accelerator
+tile.tier3_growth_accelerator.name=§6Intermedium Growth Accelerator
+tile.tier4_growth_accelerator.name=§bSuperium Growth Accelerator
+tile.tier5_growth_accelerator.name=§cSupremium Growth Accelerator
+tile.tier6_growth_accelerator.name=§5Insanium Growth Accelerator
+
+# Tooltips
+tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
+tooltip.watering_can=Range:
