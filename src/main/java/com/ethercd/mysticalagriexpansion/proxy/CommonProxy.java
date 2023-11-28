@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.proxy;
 
 
 import com.ethercd.mysticalagriexpansion.block.ModBlocks;
+import com.ethercd.mysticalagriexpansion.crop.ModNuclearCrops;
 import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.recipe.ModRecipes;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
+        ModNuclearCrops.init();
         ModBlocks.init();
         ModItems.init();
     }

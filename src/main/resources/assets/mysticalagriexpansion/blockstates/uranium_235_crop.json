@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "mysticalagriexpansion:nuclear_crop0" },
+    "age=1": { "model": "mysticalagriexpansion:nuclear_crop1" },
+    "age=2": { "model": "mysticalagriexpansion:nuclear_crop2" },
+    "age=3": { "model": "mysticalagriexpansion:nuclear_crop2" },
+    "age=4": { "model": "mysticalagriexpansion:nuclear_crop3" },
+    "age=5": { "model": "mysticalagriexpansion:nuclear_crop4" },
+    "age=6": { "model": "mysticalagriexpansion:nuclear_crop4" },
+    "age=7": { "model": "mysticalagriexpansion:uranium_235" }
+  }
+}

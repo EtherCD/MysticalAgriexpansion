@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.recipe;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.ethercd.mysticalagriexpansion.crop.ModCropsRecipes;
+import com.ethercd.mysticalagriexpansion.crop.ModNuclearCrops;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
@@ -20,8 +21,9 @@ public class ModRecipes {
 
         RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0)," I ", "ISI", " I ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         //RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.));
+        //ModCropsRecipes.init();
 
-        ModCropsRecipes.init();
+        ModNuclearCrops.initRecipes();
     }
 
 

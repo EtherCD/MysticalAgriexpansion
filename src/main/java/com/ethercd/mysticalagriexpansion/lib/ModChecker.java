@@ -13,22 +13,21 @@ public class ModChecker {
 
     public static final boolean INSANIUM;
 
-    // Nuclear
-//    public static final boolean URANIUM_235;
-//    public static final boolean URANIUM_233;
-//    public static final boolean PLUTONIUM;
-//    public static final boolean AMERICIUM;
-//    public static final boolean CURIUM;
-//    public static final boolean BERKELIUM;
-//    public static final boolean CALIFORNIUM;
-//
-//    // Stuff
-//    public static final boolean BORON;
-//    public static final boolean LITHIUM;
+    // Mekanism | IC2
+    public static final boolean CIRCUIT_BASIC;
+    public static final boolean CIRCUIT_ADVANCED;
+
+    // Nuclear Craft
+    public static final boolean BERYLLIUM;
+    public static final boolean ZIRCONIUM;
 
     static {
         INSANIUM = (!OreDictionary.getOres("essenceInsanium", false).isEmpty() &&
                 !OreDictionary.getOres("ingotInsanium", false).isEmpty() &&
                 !OreDictionary.getOres("nuggetInsanium", false).isEmpty()) || MYSTICAL_AGRADDITIONS;
+        CIRCUIT_BASIC = (!OreDictionary.getOres("circuitBasic", false).isEmpty()) || INDUSTRIAL_CRAFT_2;
+        CIRCUIT_ADVANCED = (!OreDictionary.getOres("circuitAdvanced", false).isEmpty()) || INDUSTRIAL_CRAFT_2;
+        BERYLLIUM = (!OreDictionary.getOres("beryllium", false).isEmpty()) || NUCLEAR_CRAFT;
+        ZIRCONIUM = (!OreDictionary.getOres("zirconium", false).isEmpty()) || NUCLEAR_CRAFT;
     }
 }

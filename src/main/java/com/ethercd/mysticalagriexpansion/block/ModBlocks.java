@@ -3,6 +3,8 @@ package com.ethercd.mysticalagriexpansion.block;
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriexpansion.Mod;
 import com.ethercd.mysticalagriexpansion.crop.ModCommonCrop;
+import com.ethercd.mysticalagriexpansion.crop.ModNuclearCrops;
+import com.ethercd.mysticalagriexpansion.crop.NuclearCrop;
 import net.minecraft.block.Block;
 
 import java.util.ArrayList;
@@ -19,6 +21,11 @@ public class ModBlocks {
         for (ModCommonCrop type : ModCommonCrop.values()) {
             if (type.isEnabled()) {
                 registry.register(type.getPlant(), type.getName() + "_crop");
+            }
+        }
+        for (NuclearCrop crop : ModNuclearCrops.NUCLEAR_CROPS_LIST) {
+            if (crop.isEnabled()) {
+                registry.register(crop.getPlant(), crop.getName() + "_crop");
             }
         }
     }

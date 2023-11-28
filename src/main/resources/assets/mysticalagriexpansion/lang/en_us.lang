@@ -1,12 +1,62 @@
 itemGroup.mysticalagriexpansion=Mystical Agriexpansion
 
 # Essence
-item.prosperity_essence.name=Essence Prosperity
+item.prosperity_essence.name=Prosperity Essence
 item.mechanical_essence.name=Mechanical Essence
+item.beryllium_essence.name=Beryllium Essence
+item.zirconium_essence.name=Zirconium Essence
+item.uranium_235_essence.name=Uranium-235 Essence
+item.uranium_233_essence.name=Uranium-233 Essence
+item.thorium_230_essence.name=Thorium-230 Essence
+item.thorium_232_essence.name=Thorium-232 Essence
+item.plutonium_238_essence.name=Plutonium-238 Essence
+item.plutonium_239_essence.name=Plutonium-239 Essence
+item.plutonium_241_essence.name=Plutonium-241 Essence
+item.plutonium_242_essence.name=Plutonium-242 Essence
+item.neptunium_236_essence.name=Neptunium-236 Essence
+item.neptunium_237_essence.name=Neptunium-237 Essence
+item.americium_241_essence.name=Americium-241 Essence
+item.americium_242_essence.name=Americium-242 Essence
+item.americium_243_essence.name=Americium-243 Essence
+item.curium_243_essence.name=Curium-243 Essence
+item.curium_245_essence.name=Curium-245 Essence
+item.curium_246_essence.name=Curium-246 Essence
+item.curium_247_essence.name=Curium-247 Essence
+item.berkelium_247_essence.name=Berkelium-247 Essence
+item.berkelium_248_essence.name=Berkelium-248 Essence
+item.californium_249_essence.name=Californium-249 Essence
+item.californium_250_essence.name=Californium-250 Essence
+item.californium_251_essence.name=Californium-251 Essence
+item.californium_252_essence.name=Californium-252 Essence
 
 # Seeds
-item.prosperity_seeds.name=Seeds Prosperity
+item.prosperity_seeds.name=Prosperity Seeds
 item.mechanical_seeds.name=Mechanical Seeds
+item.beryllium_seeds.name=Beryllium Seeds
+item.zirconium_seeds.name=Zirconium Seeds
+item.uranium_235_seeds.name=Uranium-235 Seeds
+item.uranium_233_seeds.name=Uranium-233 Seeds
+item.thorium_230_seeds.name=Thorium-230 Seeds
+item.thorium_232_seeds.name=Thorium-232 Seeds
+item.plutonium_238_seeds.name=Plutonium-238 Seeds
+item.plutonium_239_seeds.name=Plutonium-239 Seeds
+item.plutonium_241_seeds.name=Plutonium-241 Seeds
+item.plutonium_242_seeds.name=Plutonium-242 Seeds
+item.neptunium_236_seeds.name=Neptunium-236 Seeds
+item.neptunium_237_seeds.name=Neptunium-237 Seeds
+item.americium_241_seeds.name=Americium-241 Seeds
+item.americium_242_seeds.name=Americium-242 Seeds
+item.americium_243_seeds.name=Americium-243 Seeds
+item.curium_243_seeds.name=Curium-243 Seeds
+item.curium_245_seeds.name=Curium-245 Seeds
+item.curium_246_seeds.name=Curium-246 Seeds
+item.curium_247_seeds.name=Curium-247 Seeds
+item.berkelium_247_seeds.name=Berkelium-247 Seeds
+item.berkelium_248_seeds.name=Berkelium-248 Seeds
+item.californium_249_seeds.name=Californium-249 Seeds
+item.californium_250_seeds.name=Californium-250 Seeds
+item.californium_251_seeds.name=Californium-251 Seeds
+item.californium_252_seeds.name=Californium-252 Seeds
 
 # Crafting Items
 item.insanium_fert_core.name=§5Insanium Fertilization Core
@@ -42,6 +92,31 @@ item.insanium_watering_can.name=§5Insanium Watering Can
 # Crops
 tile.prosperity_crop.name=Prosperity Crop
 tile.mechanical_crop.name=Mechanical Crop
+item.beryllium_crop.name=Beryllium Crop
+item.zirconium_crop.name=Zirconium Crop
+item.uranium_235_crop.name=Uranium-235 Crop
+item.uranium_233_crop.name=Uranium-233 Crop
+item.thorium_230_crop.name=Thorium-230 Crop
+item.thorium_232_crop.name=Thorium-232 Crop
+item.plutonium_238_crop.name=Plutonium-238 Crop
+item.plutonium_239_crop.name=Plutonium-239 Crop
+item.plutonium_241_crop.name=Plutonium-241 Crop
+item.plutonium_242_crop.name=Plutonium-242 Crop
+item.neptunium_236_crop.name=Neptunium-236 Crop
+item.neptunium_237_crop.name=Neptunium-237 Crop
+item.americium_241_crop.name=Americium-241 Crop
+item.americium_242_crop.name=Americium-242 Crop
+item.americium_243_crop.name=Americium-243 Crop
+item.curium_243_crop.name=Curium-243 Crop
+item.curium_245_crop.name=Curium-245 Crop
+item.curium_246_crop.name=Curium-246 Crop
+item.curium_247_crop.name=Curium-247 Crop
+item.berkelium_247_crop.name=Berkelium-247 Crop
+item.berkelium_248_crop.name=Berkelium-248 Crop
+item.californium_249_crop.name=Californium-249 Crop
+item.californium_250_crop.name=Californium-250 Crop
+item.californium_251_crop.name=Californium-251 Crop
+item.californium_252_crop.name=Californium-252 Crop
 
 # Blocks
 tile.tier2_growth_accelerator.name=§aPrudentium Growth Accelerator

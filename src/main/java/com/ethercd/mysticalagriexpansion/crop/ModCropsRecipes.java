@@ -15,7 +15,9 @@ public class ModCropsRecipes {
 
     public enum CropsRecipe {
         PROSPERITY_CROP(ModCommonCrop.PROSPERITY, ModRecipes.ShapeEssenceRecipe.RHOMBUS, ModParts.itemProsperityShard, ModParts.itemProsperityShard),
-        MECHANICAL_CROP(ModCommonCrop.MECHANICAL, ModRecipes.ShapeEssenceRecipe.STAR, new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0), new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0))
+        MECHANICAL_CROP(ModCommonCrop.MECHANICAL, ModRecipes.ShapeEssenceRecipe.STAR, new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0), new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0)),
+        //BERYLLIUM_CROP(ModCommonCrop.BERYLLIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemBerylliumIngot, ModParts.itemBerylliumIngot),
+        //ZIRCONIUM_CROP(ModCommonCrop.ZIRCONIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemZirconiumIngot, ModParts.itemZirconiumIngot),
         ;
 
         private ModCommonCrop crop;

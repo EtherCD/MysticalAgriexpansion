@@ -19,10 +19,8 @@ public class Mod
     public static final CreativeTabs CREATIVE_TAB = new CreativeTab();
     @net.minecraftforge.fml.common.Mod.Instance(MOD_ID)
     public static Mod instance;
-    @SidedProxy(clientSide = "com.ethercd.mysticalagricultureexpansion.proxy.ClientProxy", serverSide = "com.ethercd.mysticalagricultureexpansion.proxy.CoreProxy")
+    @SidedProxy(clientSide = "com.ethercd.mysticalagriexpansion.proxy.ClientProxy", serverSide = "com.ethercd.mysticalagriexpansion.proxy.CoreProxy")
     public static CommonProxy proxy;
-
-    private static Logger logger;
 
     @net.minecraftforge.fml.common.Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

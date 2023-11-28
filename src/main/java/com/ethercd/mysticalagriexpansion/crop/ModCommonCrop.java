@@ -4,12 +4,15 @@ import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
+import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import net.minecraft.util.IStringSerializable;
 
 
 public enum ModCommonCrop implements IStringSerializable {
     PROSPERITY("prosperity", 5, true),
-    MECHANICAL("mechanical", 4, true)
+    MECHANICAL("mechanical", 5, true),
+    BERYLLIUM("beryllium", 4, ModChecker.BERYLLIUM),
+    ZIRCONIUM("zirconium", 4, ModChecker.ZIRCONIUM),
     ;
 
     private final String name;

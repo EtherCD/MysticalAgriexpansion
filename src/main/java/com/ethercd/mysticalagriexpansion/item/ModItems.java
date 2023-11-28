@@ -3,6 +3,9 @@ package com.ethercd.mysticalagriexpansion.item;
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriexpansion.Mod;
 import com.ethercd.mysticalagriexpansion.crop.ModCommonCrop;
+import com.ethercd.mysticalagriexpansion.crop.ModCropsRecipes;
+import com.ethercd.mysticalagriexpansion.crop.ModNuclearCrops;
+import com.ethercd.mysticalagriexpansion.crop.NuclearCrop;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import net.minecraft.item.Item;
 
@@ -27,11 +30,14 @@ public class ModItems {
         for (ModCommonCrop type : ModCommonCrop.values()) {
             if (type.isEnabled()) {
                 registry.register(type.getCrop(), type.getName() + "_essence");
+                registry.register(type.getSeed(), type.getName() + "_seeds");
+
             }
         }
-        for (ModCommonCrop type : ModCommonCrop.values()) {
-            if (type.isEnabled()) {
-                registry.register(type.getSeed(), type.getName() + "_seeds");
+        for (NuclearCrop crop : ModNuclearCrops.NUCLEAR_CROPS_LIST) {
+            if (crop.isEnabled()) {
+                registry.register(crop.getCrop(), crop.getName() + "_essence");
+                registry.register(crop.getSeed(), crop.getName() + "_seeds");
             }
         }
     }
