@@ -13,6 +13,14 @@ public enum ModCommonCrop implements IStringSerializable {
     MECHANICAL("mechanical", 5, true),
     BERYLLIUM("beryllium", 4, ModChecker.BERYLLIUM),
     ZIRCONIUM("zirconium", 4, ModChecker.ZIRCONIUM),
+    PROTON("proton", 5, ModChecker.INDUSTRIAL_UPGRADE),
+    THORIUM("thorium", 4, ModChecker.INDUSTRIAL_UPGRADE),
+    MICHALOV("michalov", 4, ModChecker.MICHALOV),
+    VANADIUM("vanadium", 4, ModChecker.VANADIUM),
+    CARAVKY("caravky", 5, ModChecker.CARAVKY),
+    CHROMIUM("chromium", 5, ModChecker.CHROMIUM),
+    SPINEL("spinel", 4, ModChecker.SPINEL),
+    GERMANIUM("germanium", 4, ModChecker.GERMANIUM),
     ;
 
     private final String name;

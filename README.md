@@ -11,10 +11,15 @@
 2. `More default crops`
 * Prosperity crop
 * Mechanical crop
+* Beryllium crop
+* Zirconium crop
+* Germanium crop
+* Spinel crop
 3. `Unusual crops types`
 * Radioactive, Alloy, Electronic
 4. `Integration with mods:`
-   1. Nuclear Craft `(nuclear materials, alloys)`
+   1. Nuclear Craft `(nuclear, alloys)`
+   2. Industrial Upgrade `(nuclear, alloys, ingots)`
 
 ## Dependencies:
 `Minecraft Forge 1.12.2-14.23.5.2859+`, `Mystical Agriculture-1.7.5+`, `Cucumber-1.1.3`

@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockGrowthAccelerator extends ModBlock implements IEnableable {
-
     private final int delay;
     private final float accelerate;
     private final int tier;

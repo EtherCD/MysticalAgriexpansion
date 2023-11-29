@@ -6,28 +6,12 @@ import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
-import com.ethercd.mysticalagriexpansion.lib.ModChecker;
+import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IStringSerializable;
-import net.minecraftforge.oredict.OreDictionary;
 
-public enum ModAlloyCrop implements IStringSerializable {
-    // Nuclear Craft Alloy
-//    MAGNESIUM_DIBORIDE("MagnesiumDiboride", 5),
-//    MANGANESE_DIOXIDE("ManganeseDioxide", 5),
-//    THERMOCONDUCTING("Thermoconducting", 5),
-//    SILOCON_CARBIDE("SiliconCarbide", 5),
-//    HARD_CARBON("HardCarbon", 5),
-//    FERROBORON("Ferroboron", 5),
-//    HSLA_STEEL("HslaSteel", 5),
-//    TIN_SILVER("TinSilver", 5),
-//    SHIBUICHI("Shibuichi", 5),
-//    ZIRCALOY("Zircaloy", 5),
-//    EXTREME("Extreme", 5),
-//    TOUGH("Tough", 5),
-    ;
-
+public class AlloyCrop {
     private final String name;
     private final boolean enabled;
     private final BlockCrop plant;
@@ -35,12 +19,13 @@ public enum ModAlloyCrop implements IStringSerializable {
     private final ModItem crop;
     private final ItemSeed seed;
 
-    private ItemStack materialIn;
-    private ItemStack materialOut;
+    private final int ingotMeta;
+    private final int nuggetMeta;
+    private final ModMetaPart metaItem;
 
-    ModAlloyCrop(String ore, int tier) {
-        this.name = ore.substring(0, 1).toLowerCase() + ore.substring(1);
-        this.enabled = (!OreDictionary.getOres("ingot" + ore, false).isEmpty());
+    AlloyCrop(String name, int tier, int inMeta, int outMeta, boolean enabled, ModMetaPart metaItem) {
+        this.name = name;
+        this.enabled = enabled;
         this.plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
         this.crop = new ModItem(getName() + "_essence");
@@ -48,12 +33,21 @@ public enum ModAlloyCrop implements IStringSerializable {
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);
-            this.materialIn = OreDictionary.getOres("ingot" + ore, false).get(0);
-            this.materialOut = OreDictionary.getOres("ingot" + ore, false).get(0);
         }
+        this.ingotMeta = inMeta;
+        this.nuggetMeta = outMeta;
+        this.metaItem = metaItem;
+        ModAlloyCrops.ALLOY_CROPS_LIST.add(this);
     }
 
-    @Override
+    public ItemSeed getSeed() {
+        return this.seed;
+    }
+
+    public ModItem getCrop() {
+        return this.crop;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -62,25 +56,22 @@ public enum ModAlloyCrop implements IStringSerializable {
         return this.tier;
     }
 
-    public boolean isEnabled() {
-        return this.enabled;
-    }
-
     public BlockMysticalCrop getPlant() {
         return this.plant;
     }
 
-    public ModItem getCrop() {
-        return this.crop;
-    }
-
-    public ItemSeed getSeed() {
-        return this.seed;
+    public boolean isEnabled() {
+        return this.enabled;
     }
 
     public void initRecipes() {
-        if (this.enabled) {
-            RecipeHelper.addShapedRecipe(this.materialOut,
+        if (this.enabled && this.metaItem.isLoaded()) {
+            Item metaItem = this.metaItem.getItem();
+
+            ItemStack materialIn = new ItemStack(metaItem, 1, this.ingotMeta);
+            ItemStack materialOut = new ItemStack(metaItem, 1, this.nuggetMeta);
+
+            RecipeHelper.addShapedRecipe(materialOut,
                     "EEE",
                     "EEE",
                     "EEE",
@@ -96,23 +87,23 @@ public enum ModAlloyCrop implements IStringSerializable {
                 default:
                 case 1:
                     tierInferiumEssence = ModParts.itemTier1Essence;
-                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_1_NUCLEAR_SEEDS.getItem(), 1, 0);
+                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_1_ALLOY_SEEDS.getItem(), 1, 0);
                     break;
                 case 2:
                     tierInferiumEssence = ModParts.itemTier2Essence;
-                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_2_NUCLEAR_SEEDS.getItem(), 1, 0);
+                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_2_ALLOY_SEEDS.getItem(), 1, 0);
                     break;
                 case 3:
                     tierInferiumEssence = ModParts.itemTier3Essence;
-                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_3_NUCLEAR_SEEDS.getItem(), 1, 0);
+                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_3_ALLOY_SEEDS.getItem(), 1, 0);
                     break;
                 case 4:
                     tierInferiumEssence = ModParts.itemTier4Essence;
-                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_4_NUCLEAR_SEEDS.getItem(), 1, 0);
+                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_4_ALLOY_SEEDS.getItem(), 1, 0);
                     break;
                 case 5:
                     tierInferiumEssence = ModParts.itemTier5Essence;
-                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_5_NUCLEAR_SEEDS.getItem(), 1, 0);
+                    tierCraftingSeeds = new ItemStack(ItemCrafting.TIER_5_ALLOY_SEEDS.getItem(), 1, 0);
                     break;
             }
 
@@ -121,7 +112,7 @@ public enum ModAlloyCrop implements IStringSerializable {
                     "ECE",
                     "PEP",
                     'P',
-                    this.materialIn,
+                    materialIn,
                     'E',
                     tierInferiumEssence,
                     'C',

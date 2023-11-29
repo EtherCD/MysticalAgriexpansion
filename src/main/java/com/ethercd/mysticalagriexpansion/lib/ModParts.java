@@ -35,47 +35,24 @@ public class ModParts {
     public static ItemStack itemInsaniumEssence;
 
     // Industrial Parts
-    public static ItemStack itemCircuitBasic;
-    public static ItemStack itemCircuitAdvanced;
+    public static ItemStack itemIUProton;
+    public static ItemStack itemIUTrorium;
 
     // Nuclear Craft
     public static ItemStack itemBerylliumIngot;
     public static ItemStack itemZirconiumIngot;
 
-    public static Item itemIC2Nuclear;
-
-    public static Item itemNCThorium;
-    public static Item itemNCUranium;
-    public static Item itemNCPlutonium;
-    public static Item itemNCNeptunium;
-    public static Item itemNCAmericium;
-    public static Item itemNCCurium;
-    public static Item itemNCBerkelium;
-    public static Item itemNCCalifornium;
-
 
     public static void init() {
         itemFertilizedEssence = new ItemStack(ModItems.itemFertilizedEssence, 1, 0);
 
-        if (ModChecker.NUCLEAR_CRAFT) {
-            try {
-                itemNCThorium = Parts.getItem("nuclearcraft:thorium");
-                itemNCUranium = Parts.getItem("nuclearcraft:uranium");
-                itemNCPlutonium = Parts.getItem("nuclearcraft:plutonium");
-                itemNCNeptunium = Parts.getItem("nuclearcraft:neptunium");
-                itemNCAmericium = Parts.getItem("nuclearcraft:americium");
-                itemNCCurium = Parts.getItem("nuclearcraft:curium");
-                itemNCBerkelium = Parts.getItem("nuclearcraft:berkelium");
-                itemNCCalifornium = Parts.getItem("nuclearcraft:californium");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        ModMetaPart.init();
 
-        if (ModChecker.INDUSTRIAL_CRAFT_2) {
+        if (ModChecker.INDUSTRIAL_UPGRADE) {
             try {
-                itemIC2Nuclear = Parts.getItem("ic2:nuclear");
-            } catch (Exception e) {
+                itemIUProton = OreDictionary.getOres("proton", false).get(0);
+                itemIUTrorium = OreDictionary.getOres("toriy", false).get(0);
+            } catch(Throwable e){
                 e.printStackTrace();
             }
         }

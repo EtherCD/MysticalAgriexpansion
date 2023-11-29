@@ -6,6 +6,7 @@ import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
+import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,9 +21,9 @@ public class NuclearCrop {
 
     private final int ingotMeta;
     private final int nuggetMeta;
-    private final Item item;
+    private final ModMetaPart metaItem;
 
-    NuclearCrop(String name, int tier, int ingotMeta, int nuggetMeta, boolean enabled, Item item) {
+    NuclearCrop(String name, int tier, int ingotMeta, int nuggetMeta, boolean enabled, ModMetaPart metaItem) {
         this.name = name;
         this.enabled = enabled;
         this.plant = new BlockCrop(getName() + "_crop");
@@ -35,11 +36,9 @@ public class NuclearCrop {
         }
         this.ingotMeta = ingotMeta;
         this.nuggetMeta = nuggetMeta;
-        this.item = item;
+        this.metaItem = metaItem;
         ModNuclearCrops.NUCLEAR_CROPS_LIST.add(this);
     }
-
-
 
     public ItemSeed getSeed() {
         return this.seed;
@@ -66,9 +65,11 @@ public class NuclearCrop {
     }
 
     public void initRecipes() {
-        if (this.enabled) {
-            ItemStack materialIn = new ItemStack(this.item, 1, this.ingotMeta);
-            ItemStack materialOut = new ItemStack(this.item, 1, this.nuggetMeta);
+        if (this.enabled && this.metaItem.isLoaded()) {
+            Item metaItem = this.metaItem.getItem();
+
+            ItemStack materialIn = new ItemStack(metaItem, 1, this.ingotMeta);
+            ItemStack materialOut = new ItemStack(metaItem, 1, this.nuggetMeta);
 
             RecipeHelper.addShapedRecipe(materialOut,
                     "EEE",
