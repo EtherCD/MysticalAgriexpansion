@@ -12,7 +12,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -28,13 +27,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings({"unused", "NullableProblems"})
 public class ItemWateringCan extends ModItem {
     private boolean water = false;
     private long ticks;
-    private int range;
-    private int chance;
-    private int delay;
-    private String name;
+    private final int range;
+    private final int chance;
+    private final int delay;
+    private final String name;
 
     public ItemWateringCan(String name, int range, int chance, float multipleDelay) {
         super(name + "_watering_can");
@@ -53,11 +53,6 @@ public class ItemWateringCan extends ModItem {
                 this.water = true;
             }
         }
-    }
-
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.NONE;
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"unused", "CallToPrintStackTrace"})
 public class AlloyCrops {
     public static AlloyCrop cropTough;
     public static AlloyCrop cropHardCarbon;

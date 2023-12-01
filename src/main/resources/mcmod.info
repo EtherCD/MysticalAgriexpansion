@@ -6,7 +6,7 @@
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/EtherCD/MysticalAgriexpansion",
-  "updateUrl": "https://github.com/EtherCD/MysticalAgriexpansion",
+  "updateUrl": "",
   "authorList": ["EtherCD"],
   "credits": "Just a little enthusiast",
   "screenshots": [],

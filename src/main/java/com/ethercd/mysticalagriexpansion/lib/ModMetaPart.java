@@ -3,6 +3,7 @@ package com.ethercd.mysticalagriexpansion.lib;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import net.minecraft.item.Item;
 
+@SuppressWarnings({"unused", "CallToPrintStackTrace"})
 public enum ModMetaPart {
     IC2_NUCLEAR("ic2:nuclear", ModChecker.INDUSTRIAL_CRAFT_2),
     NC_URANIUM("nuclearcraft:uranium", ModChecker.NUCLEAR_CRAFT),

@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.item;
 
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 
+@SuppressWarnings({"unused"})
 public enum ItemCrafting {
     INSANIUM_THEORETICAL_WATER("insanium_theoretical_water", "", ModChecker.INSANIUM),
     INSANIUM_FERT_CORE("insanium_fert_core", "", ModChecker.INSANIUM),
@@ -31,9 +32,9 @@ public enum ItemCrafting {
     TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModChecker.INSANIUM),
     ;
 
-    private ModItem item;
-    private Boolean active;
-    private String name;
+    private final ModItem item;
+    private final Boolean active;
+    private final String name;
 
     ItemCrafting(String name, String ore, Boolean active) {
         this.item = new ModItem(name);

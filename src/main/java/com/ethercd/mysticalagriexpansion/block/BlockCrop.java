@@ -17,6 +17,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 import java.util.Random;
 
+@SuppressWarnings({"unused", "RedundantMethodOverride", "NullableProblems"})
 public class BlockCrop extends BlockMysticalCrop {
     private static final AxisAlignedBB CROPS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
     private Item seed;
@@ -76,13 +77,10 @@ public class BlockCrop extends BlockMysticalCrop {
 
         if (age == 7) {
             if (ModConfig.confFertilizedEssenceChance > 0) {
-                if (rand.nextInt(100 / ModConfig.confFertilizedEssenceChance) > 0) {
-                    fertilizer = 0;
-                } else {
+                if (!(rand.nextInt(100 / ModConfig.confFertilizedEssenceChance) > 0)) {
                     fertilizer = 1;
                 }
-            } else
-                fertilizer = 0;
+            }
         }
 
         if (age == 7) {

@@ -3,7 +3,6 @@ package com.ethercd.mysticalagriexpansion.item;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
-import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
@@ -18,8 +17,8 @@ import java.util.List;
 /**
  * Class of common seeds
  */
+@SuppressWarnings({"unused", "NullableProblems"})
 public class ItemSeed extends ItemSeeds {
-    private final Block crop;
     private final int tier;
 
     public ItemSeed(String name, Block crop, int tier) {
@@ -28,7 +27,6 @@ public class ItemSeed extends ItemSeeds {
         this.setRegistryName(name);
         this.tier = tier;
         this.setCreativeTab(MACreativeTabs.CREATIVE_TAB);
-        this.crop = crop;
     }
 
     public int getTier() {

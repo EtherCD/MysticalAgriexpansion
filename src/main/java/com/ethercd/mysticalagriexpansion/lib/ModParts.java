@@ -33,7 +33,13 @@ public class ModParts {
 
     // Industrial Parts
     public static ItemStack itemIUProton;
-    public static ItemStack itemIUTrorium;
+    public static ItemStack itemIUThorium;
+    public static ItemStack itemIUMichalov;
+    public static ItemStack itemIUVanadium;
+    public static ItemStack itemIUCaravky;
+    public static ItemStack itemIUChromium;
+    public static ItemStack itemIUSpinel;
+    public static ItemStack itemIUGermanium;
 
     // Nuclear Craft
     public static ItemStack itemBerylliumIngot;
@@ -48,12 +54,53 @@ public class ModParts {
         if (ModChecker.INDUSTRIAL_UPGRADE) {
             try {
                 itemIUProton = OreDictionary.getOres("proton", false).get(0);
-                itemIUTrorium = OreDictionary.getOres("toriy", false).get(0);
+                itemIUThorium = OreDictionary.getOres("toriy", false).get(0);
             } catch(Throwable e){
                 e.printStackTrace();
             }
         }
-
+        if (ModChecker.GERMANIUM) {
+            try {
+                itemIUGermanium = OreDictionary.getOres("ingotGermanium", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
+        if (ModChecker.SPINEL) {
+            try {
+                itemIUSpinel = OreDictionary.getOres("ingotSpinel", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
+        if (ModChecker.CHROMIUM) {
+            try {
+                itemIUChromium = OreDictionary.getOres("ingotChromium", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
+        if (ModChecker.CARAVKY) {
+            try {
+                itemIUCaravky = OreDictionary.getOres("ingotCaravky", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
+        if (ModChecker.VANADIUM) {
+            try {
+                itemIUVanadium = OreDictionary.getOres("ingotVanadium", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
+        if (ModChecker.MICHALOV) {
+            try {
+                itemIUMichalov = OreDictionary.getOres("ingotMichalovm", false).get(0);
+            } catch(Throwable e){
+                e.printStackTrace();
+            }
+        }
         if (ModChecker.BERYLLIUM) {
             try {
                 itemBerylliumIngot = OreDictionary.getOres("ingotBeryllium", false).get(0);

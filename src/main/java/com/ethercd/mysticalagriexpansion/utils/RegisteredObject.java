@@ -1,5 +1,6 @@
 package com.ethercd.mysticalagriexpansion.utils;
 
+@SuppressWarnings({"unused"})
 public class RegisteredObject<T> {
     private T object;
     private String name;

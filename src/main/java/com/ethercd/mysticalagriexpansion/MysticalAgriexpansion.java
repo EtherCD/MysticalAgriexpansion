@@ -1,15 +1,13 @@
 package com.ethercd.mysticalagriexpansion;
 
 import com.blakebr0.cucumber.registry.ModRegistry;
-import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.proxy.CommonProxy;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+@SuppressWarnings({"unused"})
 @net.minecraftforge.fml.common.Mod(modid = MysticalAgriexpansion.MOD_ID, name = MysticalAgriexpansion.NAME, version = MysticalAgriexpansion.VERSION)
 public class MysticalAgriexpansion
 {

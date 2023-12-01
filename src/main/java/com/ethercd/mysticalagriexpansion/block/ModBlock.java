@@ -1,7 +1,6 @@
 package com.ethercd.mysticalagriexpansion.block;
 
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
-import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

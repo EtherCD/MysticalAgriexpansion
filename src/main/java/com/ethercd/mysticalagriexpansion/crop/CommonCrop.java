@@ -9,7 +9,7 @@ import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import net.minecraft.util.IStringSerializable;
 
-
+@SuppressWarnings({"unused", "NullableProblems"})
 public enum CommonCrop implements IStringSerializable {
     PROSPERITY("prosperity", 5, true),
     MECHANICAL("mechanical", 5, true),

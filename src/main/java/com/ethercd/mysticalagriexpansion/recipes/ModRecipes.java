@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings({"unused", "super"})
 public class ModRecipes {
     public static void register() {
         if (ModChecker.INSANIUM) {
@@ -24,7 +25,6 @@ public class ModRecipes {
     }
 
 
-
     public enum ShapeEssenceRecipe {
         RHOMBUS(" E ", "E E", " E "),
         FULL("EEE", "EEE", "EEE"),
@@ -32,7 +32,7 @@ public class ModRecipes {
         STAR(" E ", "EEE", " E ")
         ;
 
-        private String[] shape;
+        private final String[] shape;
 
         ShapeEssenceRecipe(String top, String center, String bottom) {
             this.shape = new String[] {top,center,bottom};

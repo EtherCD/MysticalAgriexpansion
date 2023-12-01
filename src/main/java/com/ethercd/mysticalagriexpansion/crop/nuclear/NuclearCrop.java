@@ -3,9 +3,7 @@ package com.ethercd.mysticalagriexpansion.crop.nuclear;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
-import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
-import com.ethercd.mysticalagriexpansion.block.ModBlock;
 import com.ethercd.mysticalagriexpansion.block.ModBlocks;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
@@ -16,6 +14,7 @@ import com.ethercd.mysticalagriexpansion.lib.ModParts;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+@SuppressWarnings({"unused"})
 public class NuclearCrop {
     private final String name;
     private final boolean enabled;

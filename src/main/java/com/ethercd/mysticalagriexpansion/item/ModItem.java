@@ -1,11 +1,11 @@
 package com.ethercd.mysticalagriexpansion.item;
 
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
-import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import net.minecraft.item.Item;
 
+@SuppressWarnings({"unused"})
 public class ModItem extends Item {
-    private String name;
+    private final String name;
 
     public ModItem(String name) {
         this.setUnlocalizedName(name);

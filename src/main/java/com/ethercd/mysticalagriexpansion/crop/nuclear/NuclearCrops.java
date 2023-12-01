@@ -1,14 +1,12 @@
 package com.ethercd.mysticalagriexpansion.crop.nuclear;
 
-import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrop;
-import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops;
-import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"unused", "CallToPrintStackTrace"})
 public class NuclearCrops {
     public static NuclearCrop cropFossilPlutonium;
     public static NuclearCrop cropFossilAmericium;
@@ -51,14 +49,14 @@ public class NuclearCrops {
         cropFossilNeptunium = new NuclearCrop("fossil_neptunium", 4, 1, 1, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropFossilCurium = new NuclearCrop("fossil_curium", 5, 2, 2, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropFossilCalifornium = new NuclearCrop("fossil_californium", 5, 3, 3, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
-        cropFossilMendelevium = new NuclearCrop("fossil_mendelevium", 5, 4, 4, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
-        cropFossilBerkelium = new NuclearCrop("fossil_berkelium", 4, 5, 5, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
-        cropFossilEinsteinium = new NuclearCrop("fossil_einsteinium", 5, 6, 6, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
+        cropFossilMendelevium = new NuclearCrop("fossil_mendelevium", 5, 5, 5, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
+        cropFossilBerkelium = new NuclearCrop("fossil_berkelium", 4, 6, 6, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
+        cropFossilEinsteinium = new NuclearCrop("fossil_einsteinium", 5, 7, 7, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropPlutonium = new NuclearCrop("plutonium", 4, 3, 7, ModChecker.INDUSTRIAL_CRAFT_2, ModMetaPart.IC2_NUCLEAR);
         if (!ModChecker.NUCLEAR_CRAFT) {
             cropUranium235 = new NuclearCrop("uranium_235", 3, 1, 5, ModChecker.INDUSTRIAL_CRAFT_2, ModMetaPart.IC2_NUCLEAR);
         } else {
-            cropUranium235 = new NuclearCrop("uranium_235", 3, 4, 6, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_URANIUM);
+            cropUranium235 = new NuclearCrop("uranium_235", 3, 4, 6, true, ModMetaPart.NC_URANIUM);
         }
         cropUranium233 = new NuclearCrop("uranium_233", 4, 0, 2, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_URANIUM);
         cropThorium230 = new NuclearCrop("thorium_230", 4, 0, 2, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_THROIUM);
