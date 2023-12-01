@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.OreDictionary;
 /**
  * This class contains all resources from other mods
  */
+@SuppressWarnings({"unused", "CallToPrintStackTrace"})
 public class ModParts {
     // Mystical Agriculture
     public static ItemStack itemProsperityShard = ItemCrafting.itemProsperityShard;
