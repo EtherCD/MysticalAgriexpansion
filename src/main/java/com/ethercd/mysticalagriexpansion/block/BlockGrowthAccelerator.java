@@ -2,9 +2,7 @@ package com.ethercd.mysticalagriexpansion.block;
 
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.ethercd.mysticalagriexpansion.Mod;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.lib.ModTooltips;
 import net.minecraft.block.Block;
@@ -36,9 +34,17 @@ public enum BlockGrowthAccelerator {
     private final boolean active;
 
     BlockGrowthAccelerator(int accelerate, int tier, boolean active) {
-        this.block = new BlockGrowth(accelerate, tier, active);
+        this.block = new BlockGrowth(accelerate, tier);
         this.tier = tier;
         this.active = active;
+    }
+
+    public static void init() {
+        for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
+            if (block.active) {
+                ModBlocks.add(block.block, block.block.getUnlocalizedName());
+            }
+        }
     }
 
     class BlockGrowth extends ModBlock implements IEnableable {
@@ -46,8 +52,8 @@ public enum BlockGrowthAccelerator {
         private final float accelerate;
         private final int tier;
 
-        public BlockGrowth(int accelerate, int tier, boolean active) {
-            super("tier" + tier + "_growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F, active);
+        public BlockGrowth(int accelerate, int tier) {
+            super("tier" + tier + "_growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
             this.setTickRandomly(false);
             this.delay = (int) Math.ceil(ModConfig.confGrowthAcceleratorSpeed * (100.0 / accelerate) * 20.0);
             this.accelerate = accelerate;

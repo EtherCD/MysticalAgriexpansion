@@ -2,17 +2,18 @@ package com.ethercd.mysticalagriexpansion.crop.alloy;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.ethercd.mysticalagriexpansion.Mod;
+import com.ethercd.mysticalagriexpansion.MACreativeTabs;
+import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
+import com.ethercd.mysticalagriexpansion.block.ModBlocks;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
+import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import static com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops.ALLOY_CROP_LIST;
 
 public class AlloyCrop {
     private final String name;
@@ -29,10 +30,12 @@ public class AlloyCrop {
     AlloyCrop(String name, int tier, int inMeta, int outMeta, boolean enabled, ModMetaPart metaItem) {
         this.name = name;
         this.enabled = enabled;
-        this.plant = new BlockCrop(getName() + "_crop", enabled);
+        this.plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
-        this.crop = (ModItem) new ModItem(getName() + "_essence", enabled).setCreativeTab(Mod.CREATIVE_TAB_ALLOY);
-        this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier(), enabled).setCreativeTab(Mod.CREATIVE_TAB_ALLOY);
+        this.crop = (ModItem) new ModItem(getName() + "_essence")
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_ALLOY);
+        this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier())
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_ALLOY);
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);
@@ -65,6 +68,14 @@ public class AlloyCrop {
 
     public boolean isEnabled() {
         return this.enabled;
+    }
+
+    public void init() {
+        if (this.enabled) {
+            ModItems.add(this.seed, this.getName() + "_seeds");
+            ModItems.add(this.crop, this.getName() + "_essence");
+            ModBlocks.add(this.plant, this.getName() + "_crop");
+        }
     }
 
     public void initRecipe() {

@@ -2,12 +2,15 @@ package com.ethercd.mysticalagriexpansion.crop.nuclear;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.ethercd.mysticalagriexpansion.Mod;
+import com.ethercd.mysticalagriexpansion.MACreativeTabs;
+import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
+import com.ethercd.mysticalagriexpansion.block.ModBlock;
+import com.ethercd.mysticalagriexpansion.block.ModBlocks;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
-import com.ethercd.mysticalagriexpansion.lib.ModChecker;
+import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
 import net.minecraft.item.Item;
@@ -28,10 +31,12 @@ public class NuclearCrop {
     NuclearCrop(String name, int tier, int ingotMeta, int nuggetMeta, boolean enabled, ModMetaPart metaItem) {
         this.name = name;
         this.enabled = enabled;
-        this.plant = new BlockCrop(getName() + "_crop", enabled);
+        this.plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
-        this.crop = (ModItem) new ModItem(getName() + "_essence", enabled).setCreativeTab(Mod.CREATIVE_TAB_NUCLEAR);
-        this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier(), enabled).setCreativeTab(Mod.CREATIVE_TAB_NUCLEAR);
+        this.crop = (ModItem) new ModItem(getName() + "_essence")
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_NUCLEAR);
+        this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier())
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_NUCLEAR);
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);
@@ -64,6 +69,14 @@ public class NuclearCrop {
 
     public boolean isEnabled() {
         return this.enabled;
+    }
+
+    public void init() {
+        if (this.enabled) {
+            ModItems.add(this.seed, this.getName() + "_seeds");
+            ModItems.add(this.crop, this.getName() + "_essence");
+            ModBlocks.add(this.plant, this.getName() + "_crop");
+        }
     }
 
     public void initRecipe() {

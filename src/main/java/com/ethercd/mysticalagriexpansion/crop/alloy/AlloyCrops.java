@@ -32,7 +32,7 @@ public class AlloyCrops {
 
     public static final List<AlloyCrop> ALLOY_CROP_LIST = new ArrayList<>();
 
-    public static void init () {
+    static {
         cropTough               = new AlloyCrop("tough", 5, 1, 1, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
         cropHardCarbon          = new AlloyCrop("hard_carbon", 5, 2, 2, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
         cropMagnesiumDiboride   = new AlloyCrop("magnesium_diboride", 5, 3, 3, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
@@ -55,5 +55,21 @@ public class AlloyCrops {
         cropVitallium           = new AlloyCrop("vitallium", 5, 7, 7, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
         cropDuralumin           = new AlloyCrop("duralumin", 5, 8, 8, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
         cropFerromanganese      = new AlloyCrop("ferromanganese", 5, 9, 9, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+    }
+
+    public static void register() {
+        for (AlloyCrop crop : AlloyCrops.ALLOY_CROP_LIST) {
+            crop.init();
+        }
+    }
+
+    public static void registerRecipes() {
+        for (AlloyCrop crop : AlloyCrops.ALLOY_CROP_LIST) {
+            try {
+                crop.initRecipe();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

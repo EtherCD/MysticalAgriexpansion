@@ -1,5 +1,8 @@
 package com.ethercd.mysticalagriexpansion.crop.nuclear;
 
+import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrop;
+import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops;
+import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 
@@ -42,7 +45,7 @@ public class NuclearCrops {
 
     public static final List<NuclearCrop> NUCLEAR_CROP_LIST = new ArrayList<>();
 
-    public static void init() {
+    static {
         cropFossilPlutonium = new NuclearCrop("fossil_plutonium", 4, 3, 3, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_NUCLEAR);
         cropFossilAmericium = new NuclearCrop("fossil_americium", 4, 0, 0, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropFossilNeptunium = new NuclearCrop("fossil_neptunium", 4, 1, 1, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
@@ -79,5 +82,21 @@ public class NuclearCrops {
         cropCalifornium250 = new NuclearCrop("californium_250", 5, 4, 6, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_CALIFORNIUM);
         cropCalifornium251 = new NuclearCrop("californium_251", 4, 8, 10, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_CALIFORNIUM);
         cropCalifornium252 = new NuclearCrop("californium_252", 5, 12, 14, ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_CALIFORNIUM);
+    }
+
+    public static void register() {
+        for (NuclearCrop crop : NuclearCrops.NUCLEAR_CROP_LIST) {
+            crop.init();
+        }
+    }
+
+    public static void registerRecipes() {
+        for (NuclearCrop crop : NuclearCrops.NUCLEAR_CROP_LIST) {
+            try {
+                crop.initRecipe();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -2,13 +2,15 @@ package com.ethercd.mysticalagriexpansion.crop;
 
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
+import com.ethercd.mysticalagriexpansion.block.ModBlocks;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
+import com.ethercd.mysticalagriexpansion.item.ModItems;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import net.minecraft.util.IStringSerializable;
 
 
-public enum ModCommonCrop implements IStringSerializable {
+public enum CommonCrop implements IStringSerializable {
     PROSPERITY("prosperity", 5, true),
     MECHANICAL("mechanical", 5, true),
     BERYLLIUM("beryllium", 4, ModChecker.BERYLLIUM),
@@ -30,13 +32,13 @@ public enum ModCommonCrop implements IStringSerializable {
     private final ModItem crop;
     private final ItemSeed seed;
 
-    ModCommonCrop(String name, int tier, boolean enabled) {
+    CommonCrop(String name, int tier, boolean enabled) {
         this.name = name;
         this.enabled = enabled;
-        this.plant = new BlockCrop(getName() + "_crop", enabled);
+        this.plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
-        this.crop = new ModItem(getName() + "_essence", enabled);
-        this.seed = new ItemSeed(getName() + "_seeds", getPlant(), this.getTier(), enabled);
+        this.crop = new ModItem(getName() + "_essence");
+        this.seed = new ItemSeed(getName() + "_seeds", getPlant(), this.getTier());
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);
@@ -66,5 +68,19 @@ public enum ModCommonCrop implements IStringSerializable {
 
     public ItemSeed getSeed() {
         return this.seed;
+    }
+
+    public void init() {
+        if (this.enabled) {
+            ModItems.add(this.seed, this.getName() + "_seeds");
+            ModItems.add(this.crop, this.getName() + "_essence");
+            ModBlocks.add(this.plant, this.getName() + "_crop");
+        }
+    }
+
+    public static void register() {
+        for (CommonCrop crop : CommonCrop.values()) {
+            crop.init();
+        }
     }
 }

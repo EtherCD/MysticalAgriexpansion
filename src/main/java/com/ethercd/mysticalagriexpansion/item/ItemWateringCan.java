@@ -3,9 +3,7 @@ package com.ethercd.mysticalagriexpansion.item;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.lib.ModTooltips;
-import com.ethercd.mysticalagriexpansion.utils.ModInstanceItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
@@ -30,20 +28,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-@ModInstanceItem()
 public class ItemWateringCan extends ModItem {
     private boolean water = false;
     private long ticks;
     private int range;
     private int chance;
     private int delay;
+    private String name;
 
-    public ItemWateringCan(String name, int range, int chance, float multipleDelay, boolean active) {
-        super(name + "_watering_can", active);
+    public ItemWateringCan(String name, int range, int chance, float multipleDelay) {
+        super(name + "_watering_can");
         this.setMaxStackSize(1);
         this.range = range;
         this.chance = chance;
         this.delay = (int)Math.ceil(1000 * multipleDelay);
+        this.name = name + "_watering_can";
     }
 
     @Override
@@ -123,5 +122,9 @@ public class ItemWateringCan extends ModItem {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
         tooltip.add(ModTooltips.WATERING_CAN + " " + Colors.DARK_PURPLE + this.range + "x" + this.range);
+    }
+
+    public void register() {
+        ModItems.add(this, this.name);
     }
 }

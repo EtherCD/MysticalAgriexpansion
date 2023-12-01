@@ -1,12 +1,7 @@
 package com.ethercd.mysticalagriexpansion.item;
 
-import com.blakebr0.cucumber.registry.ModRegistry;
-import com.ethercd.mysticalagriexpansion.Mod;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
-import com.ethercd.mysticalagriexpansion.utils.ModInstanceItem;
-import net.minecraftforge.oredict.OreDictionary;
 
-@ModInstanceItem()
 public enum ItemCrafting {
     INSANIUM_THEORETICAL_WATER("insanium_theoretical_water", "", ModChecker.INSANIUM),
     INSANIUM_FERT_CORE("insanium_fert_core", "", ModChecker.INSANIUM),
@@ -37,12 +32,24 @@ public enum ItemCrafting {
     ;
 
     private ModItem item;
+    private Boolean active;
+    private String name;
 
     ItemCrafting(String name, String ore, Boolean active) {
-        this.item = new ModItem(name, active);
+        this.item = new ModItem(name);
+        this.active = active;
+        this.name = name;
     }
 
     public ModItem getItem() {
         return this.item;
+    }
+
+    public static void register() {
+        for (ItemCrafting item : ItemCrafting.values()) {
+            if (item.active) {
+                ModItems.add(item.item, item.name);
+            }
+        }
     }
 }

@@ -1,29 +1,27 @@
 package com.ethercd.mysticalagriexpansion.crop;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
-import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrop;
 import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops;
-import com.ethercd.mysticalagriexpansion.crop.nuclear.NuclearCrop;
 import com.ethercd.mysticalagriexpansion.crop.nuclear.NuclearCrops;
-import com.ethercd.mysticalagriexpansion.recipes.ModRecipes;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
+import com.ethercd.mysticalagriexpansion.recipes.ModRecipes;
 import net.minecraft.item.ItemStack;
 
 
     public enum CropsRecipe {
-        PROSPERITY_CROP(ModCommonCrop.PROSPERITY, ModRecipes.ShapeEssenceRecipe.RHOMBUS, ModParts.itemProsperityShard, ModParts.itemProsperityShard),
-        MECHANICAL_CROP(ModCommonCrop.MECHANICAL, ModRecipes.ShapeEssenceRecipe.STAR, new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0), new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0)),
-        BERYLLIUM_CROP(ModCommonCrop.BERYLLIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemBerylliumIngot, ModParts.itemBerylliumIngot),
-        ZIRCONIUM_CROP(ModCommonCrop.ZIRCONIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemZirconiumIngot, ModParts.itemZirconiumIngot),
+        PROSPERITY_CROP(CommonCrop.PROSPERITY, ModRecipes.ShapeEssenceRecipe.RHOMBUS, ModParts.itemProsperityShard, ModParts.itemProsperityShard),
+        MECHANICAL_CROP(CommonCrop.MECHANICAL, ModRecipes.ShapeEssenceRecipe.STAR, new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0), new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0)),
+        BERYLLIUM_CROP(CommonCrop.BERYLLIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemBerylliumIngot, ModParts.itemBerylliumIngot),
+        ZIRCONIUM_CROP(CommonCrop.ZIRCONIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemZirconiumIngot, ModParts.itemZirconiumIngot),
         ;
 
-        private ModCommonCrop crop;
+        private CommonCrop crop;
         private ModRecipes.ShapeEssenceRecipe shape;
         private ItemStack output;
         private ItemStack madeOf;
 
-        CropsRecipe(ModCommonCrop crop,
+        CropsRecipe(CommonCrop crop,
                     // Essence to something recipe
                     ModRecipes.ShapeEssenceRecipe shape, ItemStack output,
                     // Recipe to made seed
@@ -87,15 +85,23 @@ import net.minecraft.item.ItemStack;
             }
         }
 
-        public static void init() {
-//            for (CropsRecipe recipe : CropsRecipe.values()) {
-//                recipe.initRecipe();
-//            }
-//            for (NuclearCrop crop : NuclearCrops.NUCLEAR_CROP_LIST) {
-//                crop.initRecipe();
-//            }
-//            for (AlloyCrop crop : AlloyCrops.ALLOY_CROP_LIST) {
-//                crop.initRecipe();
-//            }
+        public static void register() {
+            for (CropsRecipe recipe : CropsRecipe.values()) {
+                try {
+                    recipe.initRecipe();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                NuclearCrops.registerRecipes();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                AlloyCrops.registerRecipes();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }

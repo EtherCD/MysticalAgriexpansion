@@ -2,7 +2,8 @@ package com.ethercd.mysticalagriexpansion.item;
 
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.ethercd.mysticalagriexpansion.Mod;
+import com.ethercd.mysticalagriexpansion.MACreativeTabs;
+import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
@@ -21,15 +22,13 @@ public class ItemSeed extends ItemSeeds {
     private final Block crop;
     private final int tier;
 
-    public ItemSeed(String name, Block crop, int tier, boolean active) {
+    public ItemSeed(String name, Block crop, int tier) {
         super(crop, Blocks.FARMLAND);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.tier = tier;
-        this.setCreativeTab(Mod.CREATIVE_TAB);
+        this.setCreativeTab(MACreativeTabs.CREATIVE_TAB);
         this.crop = crop;
-        if (active)
-            ModItems.add(this, name);
     }
 
     public int getTier() {
