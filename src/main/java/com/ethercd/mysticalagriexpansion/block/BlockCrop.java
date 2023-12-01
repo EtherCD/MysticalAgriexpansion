@@ -22,8 +22,11 @@ public class BlockCrop extends BlockMysticalCrop {
     private Item seed;
     private Item crop;
 
-    public BlockCrop(String name) {
+    public BlockCrop(String name, boolean active) {
         super(name);
+        if (active) {
+            ModBlocks.add(this, name);
+        }
     }
 
     @Override

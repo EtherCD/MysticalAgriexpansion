@@ -81,6 +81,7 @@ dependencies {
 
     compile files("./libs/MysticalAgriculture-1.12.2-1.7.5.jar")
     compile files("./libs/Cucumber-1.12.2-1.1.3.jar")
+    compile files("./libs/NuclearCraft-2.18zzz-1.12.2.jar")
 //
     // Real examples
     // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env

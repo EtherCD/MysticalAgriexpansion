@@ -3,7 +3,9 @@ package com.ethercd.mysticalagriexpansion.item;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.lib.ModTooltips;
+import com.ethercd.mysticalagriexpansion.utils.ModInstanceItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
@@ -28,6 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
+@ModInstanceItem()
 public class ItemWateringCan extends ModItem {
     private boolean water = false;
     private long ticks;
@@ -35,8 +38,8 @@ public class ItemWateringCan extends ModItem {
     private int chance;
     private int delay;
 
-    public ItemWateringCan(String name, int range, int chance, float multipleDelay) {
-        super(name + "_watering_can");
+    public ItemWateringCan(String name, int range, int chance, float multipleDelay, boolean active) {
+        super(name + "_watering_can", active);
         this.setMaxStackSize(1);
         this.range = range;
         this.chance = chance;

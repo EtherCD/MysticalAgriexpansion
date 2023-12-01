@@ -5,11 +5,10 @@
   "description": "Expansion of mystical agriculture. Adding missing things in my opinion",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://github.com/EtherCD/Mystical-Agriexpansion",
-  "updateUrl": "",
+  "url": "https://github.com/EtherCD/MysticalAgriexpansion",
+  "updateUrl": "https://github.com/EtherCD/MysticalAgriexpansion",
   "authorList": ["EtherCD"],
   "credits": "Just a little enthusiast",
-  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": [""],
   "requiredMods": ["forge@[14.23.5.2859,)", "mysticalagriculture@[1.7.5,)", "cucumber@[1.1.2,)"]

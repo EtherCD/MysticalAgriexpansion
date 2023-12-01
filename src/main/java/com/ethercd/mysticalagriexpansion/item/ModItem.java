@@ -1,18 +1,18 @@
 package com.ethercd.mysticalagriexpansion.item;
 
 import com.ethercd.mysticalagriexpansion.Mod;
-import com.ethercd.mysticalagriexpansion.util.IHasModel;
 import net.minecraft.item.Item;
 
-public class ModItem extends Item  implements IHasModel {
+public class ModItem extends Item {
     private String name;
 
-    public ModItem(String name) {
+    public ModItem(String name, boolean active) {
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.setCreativeTab(Mod.CREATIVE_TAB);
         this.name = name;
-        ModItems.ITEM_MODEL_REGISTER.add(this);
+        if (active)
+            ModItems.add(this, name);
     }
 
     public String getName() {

@@ -5,8 +5,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class CreativeTab extends CreativeTabs {
-        public CreativeTab() {
-            super(Mod.MOD_ID);
+        public CreativeTab(String name) {
+            super(Mod.MOD_ID + "_name");
         }
 
         @Override

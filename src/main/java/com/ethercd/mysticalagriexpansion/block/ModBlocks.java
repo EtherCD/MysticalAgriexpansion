@@ -2,34 +2,27 @@ package com.ethercd.mysticalagriexpansion.block;
 
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriexpansion.Mod;
-import com.ethercd.mysticalagriexpansion.crop.*;
+import com.ethercd.mysticalagriexpansion.item.ItemWateringCan;
+import com.ethercd.mysticalagriexpansion.lib.ModChecker;
+import com.ethercd.mysticalagriexpansion.utils.RegisteredObject;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModBlocks {
-    public static final List<Block> BLOCKS_MODEL_REGISTER = new ArrayList<>();
+    public static final List<RegisteredObject<Block>> BLOCKS = new ArrayList<>();
+
+    public static void add(Block item, String name) {
+        BLOCKS.add(new RegisteredObject<>(item, name));
+    }
 
     public static void init() {
-        final ModRegistry registry = Mod.REGISTRY;
+        ModRegistry registry = Mod.REGISTRY;
 
-        BlockGrowthAccelerator.init(registry);
-
-        for (ModCommonCrop type : ModCommonCrop.values()) {
-            if (type.isEnabled()) {
-                registry.register(type.getPlant(), type.getName() + "_crop");
-            }
-        }
-        for (NuclearCrop crop : ModNuclearCrops.NUCLEAR_CROPS_LIST) {
-            if (crop.isEnabled()) {
-                registry.register(crop.getPlant(), crop.getName() + "_crop");
-            }
-        }
-        for (AlloyCrop crop : ModAlloyCrops.ALLOY_CROPS_LIST) {
-            if (crop.isEnabled()) {
-                registry.register(crop.getPlant(), crop.getName() + "_crop");
-            }
+        for (RegisteredObject<Block> elem : BLOCKS) {
+            registry.register(elem.getObject(), elem.getName());
         }
     }
 }

@@ -3,7 +3,6 @@ package com.ethercd.mysticalagriexpansion.item;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.ethercd.mysticalagriexpansion.Mod;
-import com.ethercd.mysticalagriexpansion.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
@@ -18,18 +17,19 @@ import java.util.List;
 /**
  * Class of common seeds
  */
-public class ItemSeed extends ItemSeeds implements IHasModel {
-    private final Block crops;
+public class ItemSeed extends ItemSeeds {
+    private final Block crop;
     private final int tier;
 
-    public ItemSeed(String name, Block crops, int tier) {
-        super(crops, Blocks.FARMLAND);
+    public ItemSeed(String name, Block crop, int tier, boolean active) {
+        super(crop, Blocks.FARMLAND);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.tier = tier;
         this.setCreativeTab(Mod.CREATIVE_TAB);
-        this.crops = crops;
-        ModItems.ITEM_MODEL_REGISTER.add(this);
+        this.crop = crop;
+        if (active)
+            ModItems.add(this, name);
     }
 
     public int getTier() {

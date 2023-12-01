@@ -33,10 +33,10 @@ public enum ModCommonCrop implements IStringSerializable {
     ModCommonCrop(String name, int tier, boolean enabled) {
         this.name = name;
         this.enabled = enabled;
-        this.plant = new BlockCrop(getName() + "_crop");
+        this.plant = new BlockCrop(getName() + "_crop", enabled);
         this.tier = tier;
-        this.crop = new ModItem(getName() + "_essence");
-        this.seed = new ItemSeed(getName() + "_seeds", getPlant(), this.getTier());
+        this.crop = new ModItem(getName() + "_essence", enabled);
+        this.seed = new ItemSeed(getName() + "_seeds", getPlant(), this.getTier(), enabled);
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);
