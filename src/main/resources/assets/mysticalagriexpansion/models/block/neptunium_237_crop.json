@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "mysticalagriexpansion:blocks/nuclear/neptunium_237_crop"
+  }
+}

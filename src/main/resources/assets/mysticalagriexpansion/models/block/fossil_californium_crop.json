@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "mysticalagriexpansion:blocks/nuclear/fossil_californium_crop"
+  }
+}

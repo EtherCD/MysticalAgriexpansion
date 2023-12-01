@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "mysticalagriexpansion:blocks/nuclear/thorium_230_crop"
+  }
+}

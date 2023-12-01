@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "mysticalagriexpansion:blocks/nuclear/berkelium_247_crop"
+  }
+}
