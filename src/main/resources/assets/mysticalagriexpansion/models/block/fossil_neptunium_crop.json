@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "mysticalagriexpansion:blocks/nuclear/fossil_neptunium_crop"
-  }
-}

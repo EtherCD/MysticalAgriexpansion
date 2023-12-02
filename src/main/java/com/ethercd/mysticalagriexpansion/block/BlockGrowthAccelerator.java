@@ -45,7 +45,7 @@ public enum BlockGrowthAccelerator {
         for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
             if (block.active) {
                 ModBlocks.add(block.block, ""+block.block.getRegistryName());
-                ModItems.add(new ItemBlock(block.block).setCreativeTab(MACreativeTabs.CREATIVE_TAB), ""+block.block.getRegistryName());
+//                ModItems.add(new ItemBlock(block.block).setRegistryName(), ""+block.block.getRegistryName());
             }
         }
     }

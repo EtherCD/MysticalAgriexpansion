@@ -1,6 +1,1 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "mysticalagriexpansion:blocks/nuclear/californium_250_crop"
-  }
-}
+{"parent": "block/cross","textures": {"cross": "mysticalagriexpansion:blocks/nuclear/californium_250_crop"}}

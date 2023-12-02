@@ -1,6 +1,1 @@
-{
-  "parent":"item/generated",
-  "textures": {
-    "layer0":"mysticalagriexpansion:items/nuclear/curium_243_seeds"
-  }
-}
+{"parent": "item/generated","textures": {"layer0": "mysticalagriexpansion:items/nuclear/curium_243_seeds"}}

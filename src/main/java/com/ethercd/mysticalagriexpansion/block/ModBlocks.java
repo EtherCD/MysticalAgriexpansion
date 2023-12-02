@@ -21,7 +21,7 @@ public class ModBlocks {
         BlockGrowthAccelerator.init();
 
         for (RegisteredObject<Block> elem : BLOCKS) {
-            registry.register(elem.getObject(), elem.getName());
+            registry.register(elem.getObject(), elem.getName(), true);
         }
     }
 }

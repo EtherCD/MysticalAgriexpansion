@@ -1,9 +1,10 @@
 package com.ethercd.mysticalagriexpansion.block;
 
 import com.blakebr0.cucumber.util.Utils;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -18,22 +19,40 @@ import net.minecraftforge.common.EnumPlantType;
 import java.util.Random;
 
 @SuppressWarnings({"unused", "RedundantMethodOverride", "NullableProblems"})
-public class BlockCrop extends BlockMysticalCrop {
+public class BlockCrop extends BlockCrops {
     private static final AxisAlignedBB CROPS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
     private Item seed;
     private Item crop;
 
-    public BlockCrop(String name) {
-        super(name);
+    public BlockCrop(String name){
+        super();
+        this.setUnlocalizedName(name);
+        this.setHardness(0.0F);
+        this.setSoundType(SoundType.PLANT);
+        this.disableStats();
     }
 
     @Override
-    protected boolean canSustainBush(IBlockState state) {
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
+        this.checkAndDropBlock(world, pos, state);
+        int i = this.getAge(state);
+        if(world.getLightFromNeighbors(pos.up()) >= 9){
+            if(i < this.getMaxAge()){
+                float f = getGrowthChance(this, world, pos);
+                if(rand.nextInt((int)(35.0F / f) + 1) == 0) {
+                    world.setBlockState(pos, this.withAge(i + 1), 2);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected boolean canSustainBush(IBlockState state){
         return state.getBlock() == Blocks.FARMLAND;
     }
 
     @Override
-    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
+    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state){
         return false;
     }
 
@@ -42,22 +61,20 @@ public class BlockCrop extends BlockMysticalCrop {
         return EnumPlantType.Crop;
     }
 
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
         return CROPS_AABB;
     }
 
-    public BlockMysticalCrop setSeed(Item seed) {
+    public void setSeed(Item seed){
         this.seed = seed;
-        return this;
     }
 
     @Override
-    public Item getSeed() {
+    public Item getSeed(){
         return this.seed;
     }
 
-    public BlockMysticalCrop setCrop(Item crop) {
+    public BlockCrop setCrop(Item crop){
         this.crop = crop;
         return this;
     }

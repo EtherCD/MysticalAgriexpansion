@@ -13,7 +13,7 @@ public class MysticalAgriexpansion
 {
     public static final String MOD_ID = "mysticalagriexpansion";
     public static final String NAME = "Mystical Agriexpansion";
-    public static final String VERSION = "0.2.7";
+    public static final String VERSION = "0.2.9";
     public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
     @net.minecraftforge.fml.common.Mod.Instance(MOD_ID)
     public static MysticalAgriexpansion instance;

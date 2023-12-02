@@ -1,6 +1,1 @@
-{
-  "parent":"item/generated",
-  "textures": {
-    "layer0":"mysticalagriexpansion:items/nuclear/californium_249_seeds"
-  }
-}
+{"parent": "item/generated","textures": {"layer0": "mysticalagriexpansion:items/nuclear/californium_249_seeds"}}

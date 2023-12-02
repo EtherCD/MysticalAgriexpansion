@@ -1,6 +1,1 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "mysticalagriexpansion:blocks/nuclear/neptunium_236_crop"
-  }
-}
+{"parent": "block/cross","textures": {"cross": "mysticalagriexpansion:blocks/nuclear/neptunium_236_crop"}}
