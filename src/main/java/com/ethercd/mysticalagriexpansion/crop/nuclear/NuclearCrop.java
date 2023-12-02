@@ -62,7 +62,7 @@ public class NuclearCrop {
         return this.tier;
     }
 
-    public BlockMysticalCrop getPlant() {
+    public BlockCrop getPlant() {
         return this.plant;
     }
 

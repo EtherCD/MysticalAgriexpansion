@@ -44,7 +44,6 @@ public class NuclearCrops {
     public static final List<NuclearCrop> NUCLEAR_CROP_LIST = new ArrayList<>();
 
     static {
-        cropPlutoniumGem = new NuclearCrop("plutonium_gem", 4, 3, 3, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_NUCLEAR);
         cropAmericiumGem = new NuclearCrop("americium_gem", 4, 0, 0, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropNeptuniumGem = new NuclearCrop("neptunium_gem", 4, 1, 1, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);
         cropCuriumGem = new NuclearCrop("curium_gem", 5, 2, 2, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_RADIATION);

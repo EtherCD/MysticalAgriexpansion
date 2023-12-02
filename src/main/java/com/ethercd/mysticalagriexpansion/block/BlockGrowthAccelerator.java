@@ -35,17 +35,19 @@ public enum BlockGrowthAccelerator {
 
     private final BlockGrowth block;
     private final boolean active;
+    private final String name;
 
     BlockGrowthAccelerator(int accelerate, int tier, boolean active) {
         this.block = new BlockGrowth(accelerate, tier);
         this.active = active;
+        this.name = "tier" + tier + "_growth_accelerator";
     }
 
     public static void init() {
         for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
             if (block.active) {
-                ModBlocks.add(block.block, ""+block.block.getRegistryName());
-//                ModItems.add(new ItemBlock(block.block).setRegistryName(), ""+block.block.getRegistryName());
+                ModBlocks.add(block.block, block.name);
+                ModItems.add(new ItemBlock(block.block).setRegistryName(block.name), block.name);
             }
         }
     }

@@ -58,7 +58,7 @@ public enum CommonCrop implements IStringSerializable {
         return this.enabled;
     }
 
-    public BlockMysticalCrop getPlant() {
+    public BlockCrop getPlant() {
         return this.plant;
     }
 
