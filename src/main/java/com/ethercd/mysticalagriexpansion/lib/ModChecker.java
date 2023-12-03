@@ -26,13 +26,13 @@ public class ModChecker {
         INSANIUM = (!OreDictionary.getOres("essenceInsanium", false).isEmpty() &&
                 !OreDictionary.getOres("ingotInsanium", false).isEmpty() &&
                 !OreDictionary.getOres("nuggetInsanium", false).isEmpty()) || MYSTICAL_AGRADDITIONS;
-        BERYLLIUM = (!OreDictionary.getOres("beryllium", false).isEmpty()) || NUCLEAR_CRAFT;
-        ZIRCONIUM = (!OreDictionary.getOres("zirconium", false).isEmpty()) || NUCLEAR_CRAFT;
-        MICHALOV = (!OreDictionary.getOres("michalov", false).isEmpty()) || INDUSTRIAL_UPGRADE;
-        VANADIUM = (!OreDictionary.getOres("vanadium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
-        CARAVKY = (!OreDictionary.getOres("caravky", false).isEmpty()) || INDUSTRIAL_UPGRADE;
-        CHROMIUM = (!OreDictionary.getOres("chromium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
-        SPINEL = (!OreDictionary.getOres("spinel", false).isEmpty()) || INDUSTRIAL_UPGRADE;
-        GERMANIUM = (!OreDictionary.getOres("germanium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        BERYLLIUM = (!OreDictionary.getOres("ingotBeryllium", false).isEmpty()) || NUCLEAR_CRAFT;
+        ZIRCONIUM = (!OreDictionary.getOres("ingotZirconium", false).isEmpty()) || NUCLEAR_CRAFT;
+        MICHALOV = (!OreDictionary.getOres("ingotMichalov", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        VANADIUM = (!OreDictionary.getOres("ingotVanadium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        CARAVKY = (!OreDictionary.getOres("ingotCaravky", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        CHROMIUM = (!OreDictionary.getOres("ingotChromium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        SPINEL = (!OreDictionary.getOres("ingotSpinel", false).isEmpty()) || INDUSTRIAL_UPGRADE;
+        GERMANIUM = (!OreDictionary.getOres("ingotGermanium", false).isEmpty()) || INDUSTRIAL_UPGRADE;
     }
 }

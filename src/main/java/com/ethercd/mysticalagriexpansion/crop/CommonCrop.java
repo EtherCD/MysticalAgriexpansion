@@ -16,13 +16,14 @@ public enum CommonCrop implements IStringSerializable {
     BERYLLIUM("beryllium", 4, ModChecker.BERYLLIUM),
     ZIRCONIUM("zirconium", 4, ModChecker.ZIRCONIUM),
     PROTON("proton", 5, ModChecker.INDUSTRIAL_UPGRADE),
-    THORIUM("thorium", 4, ModChecker.INDUSTRIAL_UPGRADE),
-    MICHALOV("michalov", 4, ModChecker.MICHALOV),
+    THORIUM("thorium_gem", 4, ModChecker.INDUSTRIAL_UPGRADE),
+    MICHALOV("michalov", 4, ModChecker.INDUSTRIAL_UPGRADE),
     VANADIUM("vanadium", 4, ModChecker.VANADIUM),
-    CARAVKY("caravky", 5, ModChecker.CARAVKY),
+    CARAVKY("caravky", 5, ModChecker.INDUSTRIAL_UPGRADE),
     CHROMIUM("chromium", 5, ModChecker.CHROMIUM),
     SPINEL("spinel", 4, ModChecker.SPINEL),
     GERMANIUM("germanium", 4, ModChecker.GERMANIUM),
+    COBALT_IU("cobalt", 5, ModChecker.INDUSTRIAL_UPGRADE),
     ;
 
     private final String name;

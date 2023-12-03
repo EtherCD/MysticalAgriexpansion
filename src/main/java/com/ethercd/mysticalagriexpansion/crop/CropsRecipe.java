@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops;
 import com.ethercd.mysticalagriexpansion.crop.nuclear.NuclearCrops;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
+import com.ethercd.mysticalagriexpansion.lib.ModMetaPart;
 import com.ethercd.mysticalagriexpansion.lib.ModParts;
 import com.ethercd.mysticalagriexpansion.recipes.ModRecipes;
 import net.minecraft.item.ItemStack;
@@ -14,15 +15,23 @@ public enum CropsRecipe {
     MECHANICAL_CROP(CommonCrop.MECHANICAL, ModRecipes.ShapeEssenceRecipe.STAR, new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0), new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0)),
     BERYLLIUM_CROP(CommonCrop.BERYLLIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemBerylliumIngot, ModParts.itemBerylliumIngot),
     ZIRCONIUM_CROP(CommonCrop.ZIRCONIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemZirconiumIngot, ModParts.itemZirconiumIngot),
-    PROTON_CROP(CommonCrop.PROTON, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUProton, ModParts.itemIUProton),
-    THORIUM_CROP(CommonCrop.THORIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUThorium, ModParts.itemIUThorium),
-    MICHALOV_CROP(CommonCrop.MICHALOV, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUThorium, ModParts.itemIUThorium),
+    PROTON_CROP(CommonCrop.PROTON, ModRecipes.ShapeEssenceRecipe.FULL, ModMetaPart.IU_PROTON, 0),
+    THORIUM_CROP(CommonCrop.THORIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModMetaPart.IU_THORIUM, 0),
+    MICHALOV_CROP(CommonCrop.MICHALOV, ModRecipes.ShapeEssenceRecipe.FULL, ModMetaPart.IU_INGOTS, 0),
+    VANADIUM_CROP(CommonCrop.VANADIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUVanadium, ModParts.itemIUVanadium),
+    CARAVKY_CROP(CommonCrop.CARAVKY, ModRecipes.ShapeEssenceRecipe.FULL, ModMetaPart.IU_INGOTS, 5),
+    CHROMIUM_CROP(CommonCrop.CHROMIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUChromium, ModParts.itemIUChromium),
+    SPINEL_CROP(CommonCrop.SPINEL, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUSpinel, ModParts.itemIUSpinel),
+    GERMANIUM_CROP(CommonCrop.GERMANIUM, ModRecipes.ShapeEssenceRecipe.FULL, ModParts.itemIUGermanium, ModParts.itemIUGermanium),
+    COBALT_IU_CROP(CommonCrop.COBALT_IU, ModRecipes.ShapeEssenceRecipe.FULL, ModMetaPart.IU_INGOTS, 6),
     ;
 
     private final CommonCrop crop;
     private final ModRecipes.ShapeEssenceRecipe shape;
-    private final ItemStack output;
-    private final ItemStack madeOf;
+    private ItemStack output;
+    private ItemStack madeOf;
+    private int meta = -1;
+    private ModMetaPart made;
 
     CropsRecipe(CommonCrop crop,
                 // Essence to something recipe
@@ -37,9 +46,31 @@ public enum CropsRecipe {
         this.madeOf = madeOf;
     }
 
+    CropsRecipe(CommonCrop crop,
+                // Essence to something recipe
+                ModRecipes.ShapeEssenceRecipe shape, ModMetaPart output,
+                int meta
+    )
+    {
+        this.crop = crop;
+        this.shape = shape;
+        this.made = output;
+        this.meta = meta;
+    }
+
     public void initRecipe() {
         if (this.crop.isEnabled() && this.output != null && this.madeOf != null) {
-            RecipeHelper.addShapedRecipe(this.output,
+            ItemStack output;
+            ItemStack madeOf;
+            if (this.meta >= 0) {
+                output = new ItemStack(this.made.getItem(), 1, this.meta);
+                madeOf = new ItemStack(this.made.getItem(), 1, this.meta);
+            } else {
+                output = this.output;
+                madeOf = this.madeOf;
+            }
+
+            RecipeHelper.addShapedRecipe(output,
                     this.shape.getShape()[0],
                     this.shape.getShape()[1],
                     this.shape.getShape()[2],
@@ -80,7 +111,7 @@ public enum CropsRecipe {
                     "ECE",
                     "PEP",
                     'P',
-                    this.madeOf,
+                    madeOf,
                     'E',
                     tierInferiumEssence,
                     'C',

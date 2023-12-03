@@ -19,6 +19,8 @@ public enum ModMetaPart {
     IU_RADIATION("industrialupgrade:radiationresources", ModChecker.INDUSTRIAL_UPGRADE),
     IU_ALLOY("industrialupgrade:alloyingot", ModChecker.INDUSTRIAL_UPGRADE),
     IU_INGOTS("industrialupgrade:itemingots", ModChecker.INDUSTRIAL_UPGRADE),
+    IU_THORIUM("industrialupgrade:toryi", ModChecker.INDUSTRIAL_UPGRADE),
+    IU_PROTON("industrialupgrade:proton", ModChecker.INDUSTRIAL_UPGRADE)
     ;
 
     private final String name;

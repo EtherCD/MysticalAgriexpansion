@@ -33,8 +33,6 @@ public class ModParts {
     public static ItemStack itemInsaniumEssence;
 
     // Industrial Parts
-    public static ItemStack itemIUProton;
-    public static ItemStack itemIUThorium;
     public static ItemStack itemIUMichalov;
     public static ItemStack itemIUVanadium;
     public static ItemStack itemIUCaravky;
@@ -52,14 +50,6 @@ public class ModParts {
 
         ModMetaPart.init();
 
-        if (ModChecker.INDUSTRIAL_UPGRADE) {
-            try {
-                itemIUProton = OreDictionary.getOres("proton", false).get(0);
-                itemIUThorium = OreDictionary.getOres("toriy", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
-        }
         if (ModChecker.GERMANIUM) {
             try {
                 itemIUGermanium = OreDictionary.getOres("ingotGermanium", false).get(0);
