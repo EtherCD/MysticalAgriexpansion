@@ -1,7 +1,7 @@
 package com.ethercd.mysticalagriexpansion.crop.alloy;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.block.ModBlocks;
@@ -131,6 +131,7 @@ public class AlloyCrop {
                     tierInferiumEssence,
                     'C',
                     tierCraftingSeeds);
+            ReprocessorManager.addRecipe(new ItemStack(this.seed, 1, 0), new ItemStack(this.crop, 1, 0));
         }
     }
 }

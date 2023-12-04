@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.block;
 
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
 import com.ethercd.mysticalagriexpansion.item.ModItems;
@@ -43,11 +44,10 @@ public enum BlockGrowthAccelerator {
         this.name = "tier" + tier + "_growth_accelerator";
     }
 
-    public static void init() {
+    public static void init(ModRegistry registry) {
         for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
             if (block.active) {
-                ModBlocks.add(block.block, block.name);
-                ModItems.add(new ItemBlock(block.block).setRegistryName(block.name), block.name);
+                registry.register(block.block, block.name);
             }
         }
     }

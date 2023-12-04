@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "mysticalagriexpansion:blocks/mutagenesis_processor_side",
+    "front": "mysticalagriexpansion:blocks/mutagenesis_processor_front",
+    "side": "mysticalagriexpansion:blocks/mutagenesis_processor_side"
+  }
+}

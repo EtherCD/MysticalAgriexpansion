@@ -16,6 +16,7 @@ item.thorium_essence.name=Thorium Essence
 item.caravky_essence.name=Caravky Essence
 item.proton_essence.name=Proton Essence
 item.spinel_essence.name=Spinel Essence
+item.cobalt_essence.name=Cobalt Essence
 # IU
 item.einsteinium_gem_essence.name=Einsteinium Gem Essence
 item.californium_gem_essence.name=Californium Gem Essence
@@ -87,6 +88,7 @@ item.caravky_seeds.name=Caravky Seeds
 item.proton_seeds.name=Proton Seeds
 item.spinel_seeds.name=Spinel Seeds
 item.plutonium_seeds.name=Plutonium Seeds
+item.cobalt_seeds.name=Cobalt Seeds
 # IU
 item.einsteinium_gem_seeds.name=Einsteinium Gem Seeds
 item.californium_gem_seeds.name=Californium Gem Seeds
@@ -188,6 +190,7 @@ tile.caravky_crop.name=Caravky Crop
 tile.chromium_crop.name=Chromium Crop
 tile.spinel_crop.name=Spinel Crop
 tile.germanium_crop.name=Germanium Crop
+tile.cobalt_crop.name=Cobalt Crop
 # IU
 tile.einsteinium_gem_crop.name=Einsteinium Gem Crop
 tile.californium_gem_crop.name=Californium Gem Crop
@@ -250,6 +253,9 @@ tile.tier3_growth_accelerator.name=§6Intermedium Growth Accelerator
 tile.tier4_growth_accelerator.name=§bSuperium Growth Accelerator
 tile.tier5_growth_accelerator.name=§cSupremium Growth Accelerator
 tile.tier6_growth_accelerator.name=§5Insanium Growth Accelerator
+
+# Containers
+container.mutagenesis_processor.name=Mutagenesis Processor
 
 # Tooltips
 tooltip.growth_accelerator=Grows plants above it faster. Faster than usual

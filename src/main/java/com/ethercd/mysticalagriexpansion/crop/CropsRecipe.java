@@ -1,6 +1,7 @@
 package com.ethercd.mysticalagriexpansion.crop;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.ethercd.mysticalagriexpansion.crop.alloy.AlloyCrops;
 import com.ethercd.mysticalagriexpansion.crop.nuclear.NuclearCrops;
 import com.ethercd.mysticalagriexpansion.item.ItemCrafting;
@@ -116,6 +117,8 @@ public enum CropsRecipe {
                     tierInferiumEssence,
                     'C',
                     tierCraftingSeeds);
+
+            ReprocessorManager.addRecipe(new ItemStack(this.crop.getSeed(), 1, 0), new ItemStack(this.crop.getCrop(), 1, 0));
         }
     }
 
