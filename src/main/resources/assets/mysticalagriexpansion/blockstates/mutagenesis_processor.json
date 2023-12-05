@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "mysticalagriexpansion:mutagenesis_processor" },
-    "facing=south": { "model": "mysticalagriexpansion:mutagenesis_processor", "y": 180 },
-    "facing=west":  { "model": "mysticalagriexpansion:mutagenesis_processor", "y": 270 },
-    "facing=east":  { "model": "mysticalagriexpansion:mutagenesis_processor", "y": 90 }
-  }
-}

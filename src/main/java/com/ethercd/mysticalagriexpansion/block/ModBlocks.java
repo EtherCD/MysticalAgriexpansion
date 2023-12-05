@@ -22,8 +22,8 @@ public class ModBlocks {
     public static void register() {
         ModRegistry registry = MysticalAgriexpansion.REGISTRY;
 
-        BlockGrowthAccelerator.init(registry);
-        registry.register(blockInferniumMutagenesisProcessor, "mutagenesis_processor");
+        BlockGrowthAccelerator.init();
+        registry.register(blockInferniumMutagenesisProcessor, "inferium_mutagenesis_processor");
 
         for (RegisteredObject<Block> elem : BLOCKS) {
             registry.register(elem.getObject(), elem.getName(), true);

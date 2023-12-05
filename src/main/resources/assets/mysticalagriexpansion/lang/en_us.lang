@@ -177,6 +177,9 @@ item.tier_6_alloy_seeds.name=§5Tier 6 Crafting Alloy Seed
 # Watering Can
 item.insanium_watering_can.name=§5Insanium Watering Can
 
+# blocks
+tile.inferium_mutagenesis_processor.name=Inferium Mutagenesis Processor
+
 # Crops
 tile.prosperity_crop.name=Prosperity Crop
 tile.mechanical_crop.name=Mechanical Crop
@@ -260,3 +263,6 @@ container.mutagenesis_processor.name=Mutagenesis Processor
 # Tooltips
 tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
 tooltip.watering_can=Range:
+
+# Jei
+gui.jei.category.mutagenesis.chance=chance R: %d%

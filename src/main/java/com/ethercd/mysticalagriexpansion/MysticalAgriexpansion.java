@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings({"unused"})
 @net.minecraftforge.fml.common.Mod(modid = MysticalAgriexpansion.MOD_ID, name = MysticalAgriexpansion.NAME, version = MysticalAgriexpansion.VERSION)
@@ -24,6 +25,8 @@ public class MysticalAgriexpansion
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
     }
+
+    public static Logger log;
 
     @net.minecraftforge.fml.common.Mod.EventHandler
     public void init(FMLInitializationEvent event) {

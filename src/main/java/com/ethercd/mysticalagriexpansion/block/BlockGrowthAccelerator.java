@@ -44,10 +44,11 @@ public enum BlockGrowthAccelerator {
         this.name = "tier" + tier + "_growth_accelerator";
     }
 
-    public static void init(ModRegistry registry) {
+    public static void init() {
         for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
             if (block.active) {
-                registry.register(block.block, block.name);
+                ModBlocks.add(block.block, block.name);
+                ModItems.add(new ItemBlock(block.block).setCreativeTab(MACreativeTabs.CREATIVE_TAB), block.name);
             }
         }
     }

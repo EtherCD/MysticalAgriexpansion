@@ -12,11 +12,6 @@ public class TileInferiumMutagenesisReprocessor extends TileEntityMutagenesisPro
     }
 
     @Override
-    public void tick() {
-
-    }
-
-    @Override
     public void markDirty() {
         super.markDirty();
         VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);

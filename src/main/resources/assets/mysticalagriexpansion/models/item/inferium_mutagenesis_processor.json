@@ -1,5 +1,5 @@
 {
-  "parent": "mysticalagriexpansion:block/mutagenesis_processor",
+  "parent": "mysticalagriexpansion:block/inferium_mutagenesis_processor",
   "display": {
     "gui": {
       "rotation": [ 30, 225, 0 ],

@@ -1,16 +1,16 @@
 package com.ethercd.mysticalagriexpansion.te.mutagenesis;
 
 
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VanillaPacketDispatcher;
-import com.blakebr0.mysticalagriculture.util.TileEntityUtil;
-import com.ethercd.mysticalagriexpansion.recipes.MutagenesisProcessorManager;
-import net.minecraft.client.renderer.texture.ITickable;
+import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
+import com.ethercd.mysticalagriexpansion.utils.TileEntityUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.util.ITickable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.capabilities.Capability;
@@ -21,8 +21,6 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {
     private NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
     private int progress;
-    private int packetCount;
-    private boolean packet;
 
     @Override
     public NBTTagCompound writeCustomNBT(NBTTagCompound tag) {
@@ -40,6 +38,13 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
         ItemStackHelper.loadAllItems(tag, this.inventory);
     }
 
+    private ItemStack copyItemStack(ItemStack stack) {
+        ItemStack stack1 = stack.copy();
+        stack1.setCount(1);
+        return stack1;
+    }
+
+    @Override
     public void update() {
         if (this.getWorld().isRemote)
             return;
@@ -53,43 +58,46 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
         ItemStack output3 = this.getStackInSlot(4);
 
         if (!input1.isEmpty() && !input2.isEmpty()) {
-            ItemStack recipeOutput = MutagenesisProcessorManager.processRecipe(input1, input2);
+            ItemStack recipeOutput = MutagenesisRecipesManager.getResult(input1, input2);
 
-            if (!recipeOutput.isEmpty() && (output2.isEmpty() || output2.isItemEqual(input1)) && (output3.isEmpty() || output3.isItemEqual(input2))) {
-                if (output1.isEmpty() || output1.isItemEqual(recipeOutput)) {
-                    this.progress++;
-                    if (this.progress >= getOperationTime()) {
-                        this.decrStackSize(0, 1);
-                        this.decrStackSize(1, 1);
-
-                        if (output1.isEmpty() && !output1.isItemEqual(input1)) {
+            if (!recipeOutput.isEmpty()
+                    && (output1.isEmpty() || StackHelper.canCombineStacks(output1, recipeOutput))
+                    && (output2.isEmpty() || StackHelper.canCombineStacks(output2, copyItemStack(input1)))
+                    && (output3.isEmpty() || StackHelper.canCombineStacks(output3, copyItemStack(input2)))) {
+                this.progress++;
+                if (this.progress >= this.getOperationTime()) {
+                    if (MutagenesisRecipesManager.getMutagenesisSuccess(recipeOutput)) {
+                        if (output1.isEmpty()) {
                             this.setInventorySlotContents(2, recipeOutput.copy());
-                        } else if (!output1.isEmpty() && !output1.isItemEqual(input1)) {
+                        } else {
                             output1.grow(recipeOutput.getCount());
                         }
-
-                        if (output2.isEmpty() && output2.isItemEqual(input1)) {
-                            this.setInventorySlotContents(3, input1.copy());
-                        } else {
-                            output2.grow(recipeOutput.getCount());
-                        }
-                        if (output3.isEmpty() && output3.isItemEqual(input2)) {
-                            this.setInventorySlotContents(4, input2.copy());
-                        } else {
-                            output3.grow(recipeOutput.getCount());
-                        }
-
-                        this.progress = 0;
                     }
-                    mark = true;
-                }
-            } else {
-                if (this.progress > 0) {
+                    if (output2.isEmpty()) {
+                        this.setInventorySlotContents(3, copyItemStack(input1));
+                    } else {
+                        output2.grow(1);
+                    }
+                    if (output3.isEmpty()) {
+                        ItemStack stack2 = input2.copy();
+                        stack2.setCount(1);
+                        this.setInventorySlotContents(4, copyItemStack(input2));
+                    } else {
+                        output3.grow(1);
+                    }
+                    this.decrStackSize(0, 1);
+                    this.decrStackSize(1, 1);
                     this.progress = 0;
-                    mark = true;
                 }
+                mark = true;
+            }
+        } else {
+            if (this.progress > 0) {
+                this.progress = 0;
+                mark = true;
             }
         }
+
         if (mark) {
             this.markDirty();
         }

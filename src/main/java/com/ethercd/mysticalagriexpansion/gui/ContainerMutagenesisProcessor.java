@@ -1,5 +1,6 @@
 package com.ethercd.mysticalagriexpansion.gui;
 
+import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
 import com.ethercd.mysticalagriexpansion.te.mutagenesis.TileEntityMutagenesisProcessor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -15,34 +16,35 @@ public class ContainerMutagenesisProcessor extends Container {
     public ContainerMutagenesisProcessor(InventoryPlayer player, TileEntityMutagenesisProcessor tileentity) {
         this.tileentity = tileentity;
 
-        this.addSlotToContainer(new Slot(tileentity, 0, 31, 41));
-        this.addSlotToContainer(new Slot(tileentity, 1, 55, 41));
-        this.addSlotToContainer(new Slot(tileentity, 2, 113, 30) {
+        this.addSlotToContainer(new Slot(tileentity, 0, 32, 42));
+        this.addSlotToContainer(new Slot(tileentity, 1, 56, 42));
+        this.addSlotToContainer(new Slot(tileentity, 2, 114, 31) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
             }
         });
-        this.addSlotToContainer(new Slot(tileentity, 3, 101, 57) {
+        this.addSlotToContainer(new Slot(tileentity, 3, 102, 58) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
             }
         });
-        this.addSlotToContainer(new Slot(tileentity, 0, 125, 57) {
+        this.addSlotToContainer(new Slot(tileentity, 4, 126, 58) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
             }
         });
 
-        for (int y = 0; y < 3; y++) {
-            for (int x = 0; x < 9; x++) {
-                this.addSlotToContainer(new Slot(player, x + y*9, 8 + x * 18,84+y*18));
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 101 + i * 18));
             }
         }
-        for (int x = 0; x < 9; x++) {
-            this.addSlotToContainer(new Slot(player, x, 8 + x * 18,142));
+
+        for (int i = 0; i < 9; i++) {
+            this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 159));
         }
     }
 
@@ -52,45 +54,37 @@ public class ContainerMutagenesisProcessor extends Container {
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber){
+    public ItemStack transferStackInSlot(EntityPlayer player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = (Slot)this.inventorySlots.get(slotNumber);
+        Slot slot = inventorySlots.get(index);
 
-        if(slot != null && slot.getHasStack()){
+        if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if(slotNumber == 1){
-                if(!this.mergeItemStack(itemstack1, 2, 38, false)){
+            int containerSlots = inventorySlots.size() - player.inventory.mainInventory.size();
+
+            if (index < containerSlots) {
+                if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-                slot.onSlotChange(itemstack1, itemstack);
-            } else if(slotNumber != 0){
-                if(slotNumber >= 3 && slotNumber < 29){
-                    if(!this.mergeItemStack(itemstack1, 29, 38, false)){
-                        return ItemStack.EMPTY;
-                    }
-                }
-                else if(slotNumber >= 29 && slotNumber < 38){
-                    if(!this.mergeItemStack(itemstack1, 2, 29, false)){
-                        return ItemStack.EMPTY;
-                    }
-                }
-            } else if(!this.mergeItemStack(itemstack1, 2, 38, false)){
+            } else if (!this.mergeItemStack(itemstack1, 0, containerSlots, false)) {
                 return ItemStack.EMPTY;
             }
 
-            if(itemstack1.getCount() == 0){
+            if (itemstack1.getCount() == 0) {
                 slot.putStack(ItemStack.EMPTY);
             } else {
                 slot.onSlotChanged();
             }
 
-            if(itemstack1.getCount() == itemstack.getCount()){
+            if (itemstack1.getCount() == itemstack.getCount()) {
                 return ItemStack.EMPTY;
             }
+
             slot.onTake(player, itemstack1);
         }
+
         return itemstack;
     }
 }

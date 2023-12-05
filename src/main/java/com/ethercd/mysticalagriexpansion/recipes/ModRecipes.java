@@ -24,23 +24,19 @@ public class ModRecipes {
 
         CropsRecipe.register();
 
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.URANIUM.getSeed()), new ItemStack(CropType.Type.URANIUM.getSeed()), new ItemStack(ItemCrafting.NUCLEAR_SEEDS.getItem(), 1), 14);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.URANIUM_238.getSeed()), new ItemStack(CropType.Type.URANIUM.getSeed()), new ItemStack(ItemCrafting.NUCLEAR_SEEDS.getItem(), 1), 17);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.THORIUM.getSeed()), new ItemStack(CropType.Type.URANIUM.getSeed()), new ItemStack(ItemCrafting.NUCLEAR_SEEDS.getItem(), 1), 7);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.THORIUM.getSeed()), new ItemStack(CropType.Type.URANIUM_238.getSeed()), new ItemStack(ItemCrafting.NUCLEAR_SEEDS.getItem(), 1), 9);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.THORIUM.getSeed(), CropType.Type.URANIUM.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 6);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.THORIUM.getSeed(), CropType.Type.URANIUM_238.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 12);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.URANIUM.getSeed(), CropType.Type.URANIUM_238.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 16);
 
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.BRONZE.getSeed()), new ItemStack(CropType.Type.CONSTANTAN.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 12);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.BRONZE.getSeed()), new ItemStack(CropType.Type.ELECTRUM.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 14);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.BRONZE.getSeed()), new ItemStack(CropType.Type.INVAR.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 16);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.STEEL.getSeed()), new ItemStack(CropType.Type.ELECTRICAL_STEEL.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 17);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.STEEL.getSeed()), new ItemStack(CropType.Type.CONDUCTIVE_IRON.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 19);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.STEEL.getSeed()), new ItemStack(CropType.Type.DARK_STEEL.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 16);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.STEEL.getSeed()), new ItemStack(CropType.Type.END_STEEL.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 14);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.ELECTRICAL_STEEL.getSeed()), new ItemStack(CropType.Type.CONDUCTIVE_IRON.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 19);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.ELECTRICAL_STEEL.getSeed()), new ItemStack(CropType.Type.DARK_STEEL.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 15);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.ELECTRICAL_STEEL.getSeed()), new ItemStack(CropType.Type.PULSATING_IRON.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 19);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.DARK_STEEL.getSeed()), new ItemStack(CropType.Type.VIBRANT_ALLOY.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 16);
-        MutagenesisProcessorManager.addRecipe(new ItemStack(CropType.Type.DARK_STEEL.getSeed()), new ItemStack(CropType.Type.ENERGETIC_ALLOY.getSeed()), new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1), 17);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.BRONZE.getSeed(), CropType.Type.INVAR.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.BRONZE.getSeed(), CropType.Type.ELECTRUM.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.BRONZE.getSeed(), CropType.Type.CONSTANTAN.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.CONDUCTIVE_IRON.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 16);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.DARK_STEEL.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 16);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.PULSATING_IRON.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.ENERGETIC_ALLOY.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 16);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.VIBRANT_ALLOY.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
+        MutagenesisRecipesManager.addRecipe(CropType.Type.STEEL.getSeed(), CropType.Type.END_STEEL.getSeed(), ItemCrafting.NUCLEAR_SEEDS.getItem(), 14);
     }
 
 

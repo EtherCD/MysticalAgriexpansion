@@ -46,7 +46,7 @@ public class GuiMutagenesisProcessor extends GuiContainer {
 
         if (this.te.getProgress() > 0) {
             int i2 = this.getCookProgressScaled(24);
-            this.drawTexturedModalRect(k + 98, l + 41, 176, 14, i2 + 1, 16);
+            this.drawTexturedModalRect(k + 76, l + 42, 176, 14, i2 + 1, 16);
         }
     }
 
