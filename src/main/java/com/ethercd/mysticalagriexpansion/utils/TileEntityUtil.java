@@ -5,7 +5,8 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityUtil extends TileEntity {
+@SuppressWarnings("NullableProblems")
+public abstract class TileEntityUtil extends TileEntity {
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound tag){
         super.writeToNBT(tag);
@@ -19,13 +20,13 @@ public class TileEntityUtil extends TileEntity {
         readCustomNBT(tag);
     }
 
-    public NBTTagCompound writeCustomNBT(NBTTagCompound tag){ return tag; }
-    public void readCustomNBT(NBTTagCompound tag){}
+    public abstract void writeCustomNBT(NBTTagCompound tag);
+    public abstract void readCustomNBT(NBTTagCompound tag);
 
     @Override
     public SPacketUpdateTileEntity getUpdatePacket(){
         NBTTagCompound tag = new NBTTagCompound();
-        writeCustomNBT(tag);
+        this.writeCustomNBT(tag);
         return new SPacketUpdateTileEntity(pos, -1, tag);
     }
 

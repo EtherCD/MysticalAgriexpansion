@@ -14,11 +14,11 @@ public class MysticalAgriexpansion
 {
     public static final String MOD_ID = "mysticalagriexpansion";
     public static final String NAME = "Mystical Agriexpansion";
-    public static final String VERSION = "0.2.9";
+    public static final String VERSION = "0.3.5";
     public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
     @net.minecraftforge.fml.common.Mod.Instance(MOD_ID)
     public static MysticalAgriexpansion instance;
-    @SidedProxy(clientSide = "com.ethercd.mysticalagriexpansion.proxy.ClientProxy", serverSide = "com.ethercd.mysticalagriexpansion.proxy.CoreProxy")
+    @SidedProxy(clientSide = "com.ethercd.mysticalagriexpansion.proxy.ClientProxy", serverSide = "com.ethercd.mysticalagriexpansion.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @net.minecraftforge.fml.common.Mod.EventHandler
@@ -37,6 +37,4 @@ public class MysticalAgriexpansion
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
-
-
 }

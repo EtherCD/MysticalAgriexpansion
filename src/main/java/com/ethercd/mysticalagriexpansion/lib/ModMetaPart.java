@@ -20,7 +20,8 @@ public enum ModMetaPart {
     IU_ALLOY("industrialupgrade:alloyingot", ModChecker.INDUSTRIAL_UPGRADE),
     IU_INGOTS("industrialupgrade:itemingots", ModChecker.INDUSTRIAL_UPGRADE),
     IU_THORIUM("industrialupgrade:toryi", ModChecker.INDUSTRIAL_UPGRADE),
-    IU_PROTON("industrialupgrade:proton", ModChecker.INDUSTRIAL_UPGRADE)
+    IU_PROTON("industrialupgrade:proton", ModChecker.INDUSTRIAL_UPGRADE),
+    MA_STORAGE("mysticalagriculture:storage", true),
     ;
 
     private final String name;

@@ -1,6 +1,5 @@
 package com.ethercd.mysticalagriexpansion.gui;
 
-import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
 import com.ethercd.mysticalagriexpansion.te.mutagenesis.TileEntityMutagenesisProcessor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,10 +7,9 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-@SuppressWarnings("ALL")
+@SuppressWarnings("NullableProblems")
 public class ContainerMutagenesisProcessor extends Container {
     private final TileEntityMutagenesisProcessor tileentity;
-    private int progress, maxProgress;
 
     public ContainerMutagenesisProcessor(InventoryPlayer player, TileEntityMutagenesisProcessor tileentity) {
         this.tileentity = tileentity;

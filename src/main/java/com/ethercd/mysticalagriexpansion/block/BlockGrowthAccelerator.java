@@ -2,7 +2,6 @@ package com.ethercd.mysticalagriexpansion.block;
 
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
 import com.ethercd.mysticalagriexpansion.item.ModItems;

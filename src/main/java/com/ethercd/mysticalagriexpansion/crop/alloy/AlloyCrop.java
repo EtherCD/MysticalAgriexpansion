@@ -131,7 +131,7 @@ public class AlloyCrop {
                     tierInferiumEssence,
                     'C',
                     tierCraftingSeeds);
-            ReprocessorManager.addRecipe(new ItemStack(this.seed, 1, 0), new ItemStack(this.crop, 1, 0));
+            ReprocessorManager.addRecipe(new ItemStack(this.crop, 2, 0), new ItemStack(this.seed, 1, 0));
         }
     }
 }

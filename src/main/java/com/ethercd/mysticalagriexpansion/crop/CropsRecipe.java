@@ -118,7 +118,7 @@ public enum CropsRecipe {
                     'C',
                     tierCraftingSeeds);
 
-            ReprocessorManager.addRecipe(new ItemStack(this.crop.getSeed(), 1, 0), new ItemStack(this.crop.getCrop(), 1, 0));
+            ReprocessorManager.addRecipe(new ItemStack(this.crop.getCrop(), 2, 0), new ItemStack(this.crop.getSeed(), 1, 0));
         }
     }
 

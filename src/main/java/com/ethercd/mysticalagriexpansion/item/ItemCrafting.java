@@ -30,6 +30,8 @@ public enum ItemCrafting {
     TIER_6_ELECTRONIC_SEEDS("tier_6_electronic_seeds", "", ModChecker.INSANIUM),
     TIER_6_NUCLEAR_SEEDS("tier_6_nuclear_seeds", "", ModChecker.INSANIUM),
     TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModChecker.INSANIUM),
+
+    MUTAGENESIS_CORE("mutagenesis_core", "", true),
     ;
 
     private final ModItem item;

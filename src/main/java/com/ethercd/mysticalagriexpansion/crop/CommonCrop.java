@@ -1,6 +1,5 @@
 package com.ethercd.mysticalagriexpansion.crop;
 
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.block.ModBlocks;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;

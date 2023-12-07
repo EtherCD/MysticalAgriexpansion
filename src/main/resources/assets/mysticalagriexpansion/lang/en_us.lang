@@ -173,6 +173,7 @@ item.tier_5_alloy_seeds.name=§cTier 5 Crafting Alloy Seed
 item.tier_6_electronic_seeds.name=§5Tier 6 Crafting Electronic Seed
 item.tier_6_nuclear_seeds.name=§5Tier 6 Crafting Nuclear Seed
 item.tier_6_alloy_seeds.name=§5Tier 6 Crafting Alloy Seed
+item.mutagenesis_core.name=Mutagenesis Core
 
 # Watering Can
 item.insanium_watering_can.name=§5Insanium Watering Can
@@ -265,4 +266,4 @@ tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
 tooltip.watering_can=Range:
 
 # Jei
-gui.jei.category.mutagenesis.chance=chance R: %d%
+gui.jei.category.mutagenesis.chance=Chance R: %d%%

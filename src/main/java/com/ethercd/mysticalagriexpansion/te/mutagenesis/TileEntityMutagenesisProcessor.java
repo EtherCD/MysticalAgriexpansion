@@ -18,17 +18,16 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
+@SuppressWarnings({"NullableProblems", "unchecked"})
 public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {
-    private NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
     private int progress;
 
     @Override
-    public NBTTagCompound writeCustomNBT(NBTTagCompound tag) {
+    public void writeCustomNBT(NBTTagCompound tag) {
         tag.setInteger("Progress", this.progress);
 
         ItemStackHelper.saveAllItems(tag, this.inventory);
-
-        return tag;
     }
 
     @Override
@@ -132,10 +131,7 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
     public boolean isItemValidForSlot(int index, ItemStack stack) {
         if (index == 2) {
             return false;
-        } else if (index != 1) {
-            return true;
-        }
-        return false;
+        } else return index != 1;
     }
 
     @Override
@@ -145,8 +141,6 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
 
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
-        ItemStack itemstack = this.inventory.get(index);
-        boolean flag = !stack.isEmpty() && stack.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(stack, itemstack);
         this.inventory.set(index, stack);
 
         if (stack.getCount() > this.getInventoryStackLimit()) {

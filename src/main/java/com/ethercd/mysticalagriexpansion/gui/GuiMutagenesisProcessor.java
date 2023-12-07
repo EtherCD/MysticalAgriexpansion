@@ -8,9 +8,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import org.lwjgl.opengl.GL11;
 
+@SuppressWarnings("deprecation")
 public class GuiMutagenesisProcessor extends GuiContainer {
     private static final ResourceLocation GUI = new ResourceLocation(MysticalAgriexpansion.MOD_ID, "textures/gui/mutagenesis_processor_gui.png");
-    private TileEntityMutagenesisProcessor te;
+    private final TileEntityMutagenesisProcessor te;
 
     public GuiMutagenesisProcessor(InventoryPlayer player, TileEntityMutagenesisProcessor machine){
         super(new ContainerMutagenesisProcessor(player, machine));

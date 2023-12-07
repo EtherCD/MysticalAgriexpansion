@@ -1,7 +1,6 @@
 package com.ethercd.mysticalagriexpansion.crop.nuclear;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
@@ -132,7 +131,7 @@ public class NuclearCrop {
                     tierInferiumEssence,
                     'C',
                     tierCraftingSeeds);
-            ReprocessorManager.addRecipe(new ItemStack(this.seed, 1, 0), new ItemStack(this.crop, 1, 0));
+            ReprocessorManager.addRecipe(new ItemStack(this.crop, 2, 0), new ItemStack(this.seed, 1, 0));
         }
     }
 }

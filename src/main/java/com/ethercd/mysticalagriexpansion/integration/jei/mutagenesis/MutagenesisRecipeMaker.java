@@ -3,16 +3,13 @@ package com.ethercd.mysticalagriexpansion.integration.jei.mutagenesis;
 import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Table;
-import mezz.jei.api.IJeiHelpers;
-import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.item.ItemStack;
 
 import java.util.List;
 import java.util.Map;
 
 public class MutagenesisRecipeMaker {
-    public static List<MutagenesisRecipe> getRecipes(IJeiHelpers helpers) {
-        IStackHelper stackHelper = helpers.getStackHelper();
+    public static List<MutagenesisRecipe> getRecipes() {
         Table<ItemStack, ItemStack, ItemStack> recipes = MutagenesisRecipesManager.getRecipesList();
         List<MutagenesisRecipe> jeiRecipes = Lists.newArrayList();
 
@@ -20,7 +17,7 @@ public class MutagenesisRecipeMaker {
             for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet()) {
                 ItemStack input1 = entry.getKey();
                 ItemStack input2 = ent.getKey();
-                ItemStack output = ent.getValue();
+                ItemStack output = MutagenesisRecipesManager.getStackWithoutMeta(ent.getValue());
                 List<ItemStack> inputs = Lists.newArrayList(input1, input2);
                 MutagenesisRecipe recipe = new MutagenesisRecipe(inputs, output);
                 jeiRecipes.add(recipe);

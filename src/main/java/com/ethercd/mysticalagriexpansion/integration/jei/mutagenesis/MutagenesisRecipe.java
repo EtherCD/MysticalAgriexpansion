@@ -10,9 +10,9 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("NullableProblems")
 public class MutagenesisRecipe implements IRecipeWrapper {
     private final List<ItemStack> inputs;
     private final List<ItemStack> outputs;
@@ -35,8 +35,7 @@ public class MutagenesisRecipe implements IRecipeWrapper {
         if (chance > 0) {
             String chanceString = JEICompat.translateToLocalFormatted("gui.jei.category.mutagenesis.chance", chance);
             FontRenderer renderer = minecraft.fontRenderer;
-            int stringWidth = renderer.getStringWidth(chanceString);
-            renderer.drawString(chanceString, recipeWidth - stringWidth, 0, Color.GRAY.getRGB());
+            renderer.drawString(chanceString, 1, 1, Color.GRAY.getRGB());
         }
     }
 }

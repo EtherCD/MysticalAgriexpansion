@@ -5,6 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 
+@SuppressWarnings("NullableProblems")
 public class TileInferiumMutagenesisReprocessor extends TileEntityMutagenesisProcessor{
     @Override
     public int getOperationTime() {

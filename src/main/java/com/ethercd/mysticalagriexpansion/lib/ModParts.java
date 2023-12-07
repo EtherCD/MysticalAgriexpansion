@@ -1,5 +1,7 @@
 package com.ethercd.mysticalagriexpansion.lib;
 
+import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockInferiumReprocessor;
 import com.blakebr0.mysticalagriculture.items.ItemCrafting;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import net.minecraft.item.ItemStack;
@@ -23,8 +25,15 @@ public class ModParts {
     public static ItemStack itemTier3CraftingSeed = ItemCrafting.itemTier3CraftingSeed;
     public static ItemStack itemTier4CraftingSeed = ItemCrafting.itemTier4CraftingSeed;
     public static ItemStack itemTier5CraftingSeed = ItemCrafting.itemTier5CraftingSeed;
+    public static ItemStack itemTier1Ingot = ItemCrafting.itemInferiumIngot;
+    public static ItemStack itemTier2Ingot = ItemCrafting.itemPrudentiumIngot;
+    public static ItemStack itemTier3Ingot = ItemCrafting.itemIntermediumIngot;
+    public static ItemStack itemTier4Ingot = ItemCrafting.itemSuperiumIngot;
+    public static ItemStack itemTier5Ingot = ItemCrafting.itemSupremiumIngot;
     public static ItemStack itemSupremiumFertCore = ItemCrafting.itemSupremiumFertCore;
     public static ItemStack itemTheoreticalWater = ItemCrafting.itemTheoreticalWater;
+    public static BlockInferiumReprocessor blockInferiumSeedReprocessor = ModBlocks.INFERIUM_REPROCESSOR;
+
     public static ItemStack itemFertilizedEssence;
 
     // Mystical Agradditions
