@@ -36,6 +36,7 @@ public class ItemSeed extends ItemSeeds {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
+        super.addInformation(stack, world, tooltip, advanced);
         switch(this.tier){
             case 1:
                 tooltip.add(Tooltips.TIER + Colors.YELLOW + "1");

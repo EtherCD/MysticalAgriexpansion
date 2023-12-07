@@ -3,6 +3,9 @@
     <img src="./src/main/resources/logo.png" alt="Logo">
     <h2>Description</h2>
     <h3>This is an ambitious addon for Mystical Agriculture that expands and improves the functionality of the main mod. This addon adds many new features, support for other mods, and also improves the gaming experience using Mystical Agriculture.</h3>
+   <div>
+       <img src="./github/screenshot.png" alt="screenshot lol">
+   </div>
 </div>
 
 ## Adds
