@@ -1,5 +1,6 @@
 package com.ethercd.mysticalagriexpansion.item;
 
+import com.ethercd.mysticalagriexpansion.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 
 @SuppressWarnings({"unused"})
@@ -27,9 +28,9 @@ public enum ItemCrafting {
     TIER_5_ELECTRONIC_SEEDS("tier_5_electronic_seeds", "", true),
     TIER_5_NUCLEAR_SEEDS("tier_5_nuclear_seeds", "", true),
     TIER_5_ALLOY_SEEDS("tier_5_alloy_seeds", "", true),
-    TIER_6_ELECTRONIC_SEEDS("tier_6_electronic_seeds", "", ModChecker.INSANIUM),
-    TIER_6_NUCLEAR_SEEDS("tier_6_nuclear_seeds", "", ModChecker.INSANIUM),
-    TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModChecker.INSANIUM),
+    TIER_6_ELECTRONIC_SEEDS("tier_6_electronic_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
+    TIER_6_NUCLEAR_SEEDS("tier_6_nuclear_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
+    TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
 
     MUTAGENESIS_CORE("mutagenesis_core", "", true),
     ;

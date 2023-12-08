@@ -6,10 +6,15 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 
 @SuppressWarnings("NullableProblems")
-public class TileInferiumMutagenesisReprocessor extends TileEntityMutagenesisProcessor{
+public class TilePrudentiumMutagenesisProcessor extends TileEntityMutagenesisProcessor{
     @Override
     public int getOperationTime() {
-        return 1000;
+        return 850;
+    }
+
+    @Override
+    public float getChanceMultiplier() {
+        return 1.25f;
     }
 
     @Override

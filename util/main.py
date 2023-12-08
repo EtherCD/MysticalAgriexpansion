@@ -18,11 +18,15 @@ def main():
     print("==   item - model for item                    ==")
     print("==   block - model for block                  ==")
     print("==   blit - model for blockitem               ==")
+    print("==   m0 - m0 model                            ==")
     print("== generate:                                  ==")
     print("==  crop - Generating all texutres            ==")
     print("==  seeds - Generating seeds texture          ==")
     print("==  essence - Generating essence texture      ==")
-    print("==  ga - Generating growth accelerator        ==")
+    print("==  essence - Generating essence texture      ==")
+    print("==  m0 - Generating machine 0                 ==")
+    print("== util:                                      ==")
+    print("==  bleach - discolors asset                  ==")
     print("================================================")
     while True:
         i = input('Put Command <- ')
@@ -49,6 +53,10 @@ def main():
             name = input("Put blit name <- ")
             path = input("Put blit texture path (enter to normal path) <- ")
             model_handler.create_model_item_block(name, path)
+        if i == "create model m0":
+            name = input("Put m0 prefix (inferium, etc...) <- ")
+            model_handler.create_m0_blockstate(name+"_mutagenesis_processor")
+            model_handler.create_m0_models(name+"_mutagenesis_processor")
         if i == "generate crop":
             name = input("Put crop name <- ")
             path = input("Put crop texture path (enter to normal path) <- ")
@@ -89,6 +97,14 @@ def main():
             name = input("Put ga name <- ")
             target_color = input("Put color (R,G,B 0...255) <- ")
             texture_handler.generate("growth_accelerator", f"../src/main/resources/assets/{mod_id}/textures/blocks/{name}_growth_accelerator.png", target_color)
+        if i == "generate m0":
+            name = input("Put m0 prefix (inferium, etc...) <- ")
+            target_color = input("Put color (R,G,B 0...255) <- ")
+            texture_handler.generate("machine_0_front", f"../src/main/resources/assets/{mod_id}/textures/blocks/{name}_mutagenesis_processor_front.png", target_color)
+            texture_handler.generate("machine_0_side", f"../src/main/resources/assets/{mod_id}/textures/blocks/{name}_mutagenesis_processor_side.png", target_color)
+        if i == "util bleach":
+            name = input("Put asset name <- ")
+            texture_util.texture_bleach(name)
 
 
 if __name__ == '__main__':

@@ -42,6 +42,16 @@ templates = {
             [x, y] for x in range(8, 24) for y in range(5, 13)]+
             [[x, y] for x in range(10, 13) for y in range(13, 20)]+
             [[x, y] for x in range(19, 22) for y in range(13, 20)]
+    },
+    "machine_0_front": {
+        "file": "assets/machine_0_front.png",
+        "pixels": [
+            [x, y] for x in range(0, 16) for y in range(0, 16)]
+    },
+    "machine_0_side": {
+        "file": "assets/machine_0_side.png",
+        "pixels": [
+            [x, y] for x in range(0, 16) for y in range(0, 16)]
     }
 }
 

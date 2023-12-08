@@ -1,11 +1,13 @@
 package com.ethercd.mysticalagriexpansion.block.mutagenesis;
 
+import com.blakebr0.cucumber.lib.Colors;
 import com.ethercd.mysticalagriexpansion.MACreativeTabs;
 import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import com.ethercd.mysticalagriexpansion.block.ModBlock;
 import com.ethercd.mysticalagriexpansion.gui.GuiHandler;
+import com.ethercd.mysticalagriexpansion.lib.ModTooltips;
 import com.ethercd.mysticalagriexpansion.te.mutagenesis.TileEntityMutagenesisProcessor;
-import com.ethercd.mysticalagriexpansion.te.mutagenesis.TileInferiumMutagenesisReprocessor;
+import com.ethercd.mysticalagriexpansion.te.mutagenesis.TileInferiumMutagenesisProcessor;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -13,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -25,15 +28,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 @SuppressWarnings({"NullableProblems", "deprecation", "ReassignedVariable"})
 public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityProvider {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    public BlockMutagenesisProcessor(String name) {
+    private final int tier;
+
+    public BlockMutagenesisProcessor(String name, int tier) {
         super(name, Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
         //this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         setCreativeTab(MACreativeTabs.CREATIVE_TAB);
+        this.tier = tier;
     }
 
     @Override
@@ -90,10 +97,58 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
         return (state.getValue(FACING)).getIndex();
     }
 
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+        TileEntity tile = world.getTileEntity(pos);
+
+        if (tile instanceof TileEntityMutagenesisProcessor) {
+            TileEntityMutagenesisProcessor te = (TileEntityMutagenesisProcessor) tile;
+
+            for (int i = 0; i < te.getSizeInventory(); i++) {
+                ItemStack stack = te.getStackInSlot(i);
+                this.spawnAsEntity(world, pos, stack);
+            }
+        }
+
+        super.breakBlock(world, pos, state);
+    }
+
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
+        switch (this.tier) {
+            default:
+            case 1:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.YELLOW + 40));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.YELLOW + 1.0f));
+                break;
+            case 2:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.GREEN + 34));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.GREEN + 1.25f));
+                break;
+            case 3:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.GOLD + 26));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.GOLD + 1.5f));
+                break;
+            case 4:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.AQUA + 14));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.AQUA + 1.75f));
+                break;
+            case 5:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.RED + 6));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.RED + 2.0f));
+                break;
+            case 6:
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.DARK_PURPLE + 2));
+                tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CHANCE, Colors.DARK_PURPLE + 3.0f));
+                break;
+        }
+    }
+
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileInferiumMutagenesisReprocessor();
+        return new TileInferiumMutagenesisProcessor();
     }
 
     @Override

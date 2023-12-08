@@ -43,6 +43,10 @@ public enum BlockGrowthAccelerator {
         this.name = "tier" + tier + "_growth_accelerator";
     }
 
+    public BlockGrowth getBlock() {
+        return this.block;
+    }
+
     public static void init() {
         for (BlockGrowthAccelerator block : BlockGrowthAccelerator.values()) {
             if (block.active) {

@@ -36,6 +36,11 @@ public class JEICompat implements IModPlugin {
         registry.addRecipes(MutagenesisRecipeMaker.getRecipes(), RecipeCategories.MUTAGENESIS);
         registry.addRecipeClickArea(GuiMutagenesisProcessor.class, 77, 42, 22, 15, RecipeCategories.MUTAGENESIS);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockInferniumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockPrudentiumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockIntermediumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockSuperiumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockSupremiumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockInsaniumMutagenesisProcessor), RecipeCategories.MUTAGENESIS);
         recipeTransfer.addRecipeTransferHandler(ContainerMutagenesisProcessor.class, RecipeCategories.MUTAGENESIS, 0, 1, 2, 36);
     }
 

@@ -91,11 +91,10 @@ public class MutagenesisRecipesManager {
      * @param stack Result of recipe stack
      * @return Successful or not mutation
      */
-    public static boolean getMutagenesisSuccess(ItemStack stack) {
-        int randomInt = random.nextInt(100);
+    public static boolean getMutagenesisSuccess(ItemStack stack, float chanceMultiplier) {
         for (Map.Entry<ItemStack, Integer> entry : chanceList.entrySet()) {
             if (StackHelper.canCombineStacks(stack, entry.getKey())) {
-                return randomInt > 50 - entry.getValue() && randomInt < 50 + entry.getValue();
+                return random.nextInt(100) < 100 - (entry.getValue() * chanceMultiplier);
             }
         }
         return false;

@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.crop;
 
 import com.ethercd.mysticalagriexpansion.block.BlockCrop;
 import com.ethercd.mysticalagriexpansion.block.ModBlocks;
+import com.ethercd.mysticalagriexpansion.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.item.ItemSeed;
 import com.ethercd.mysticalagriexpansion.item.ModItem;
 import com.ethercd.mysticalagriexpansion.item.ModItems;
@@ -14,15 +15,15 @@ public enum CommonCrop implements IStringSerializable {
     MECHANICAL("mechanical", 5, true),
     BERYLLIUM("beryllium", 4, ModChecker.BERYLLIUM),
     ZIRCONIUM("zirconium", 4, ModChecker.ZIRCONIUM),
-    PROTON("proton", 5, ModChecker.INDUSTRIAL_UPGRADE),
-    THORIUM("thorium_gem", 4, ModChecker.INDUSTRIAL_UPGRADE),
-    MICHALOV("michalov", 4, ModChecker.INDUSTRIAL_UPGRADE),
+    PROTON("proton", 5, ModConfig.integrationIU && ModChecker.INDUSTRIAL_UPGRADE),
+    THORIUM("thorium_gem", 4, ModConfig.integrationIU && ModChecker.INDUSTRIAL_UPGRADE),
+    MICHALOV("michalov", 4, ModConfig.integrationIU &&  ModChecker.INDUSTRIAL_UPGRADE),
     VANADIUM("vanadium", 4, ModChecker.VANADIUM),
-    CARAVKY("caravky", 5, ModChecker.INDUSTRIAL_UPGRADE),
+    CARAVKY("caravky", 5, ModConfig.integrationIU && ModChecker.INDUSTRIAL_UPGRADE),
     CHROMIUM("chromium", 5, ModChecker.CHROMIUM),
     SPINEL("spinel", 4, ModChecker.SPINEL),
     GERMANIUM("germanium", 4, ModChecker.GERMANIUM),
-    COBALT_IU("cobalt", 5, ModChecker.INDUSTRIAL_UPGRADE),
+    COBALT_IU("cobalt", 5, ModConfig.integrationIU && ModChecker.INDUSTRIAL_UPGRADE),
     ;
 
     private final String name;

@@ -16,10 +16,12 @@ import java.util.List;
 public class MutagenesisRecipe implements IRecipeWrapper {
     private final List<ItemStack> inputs;
     private final List<ItemStack> outputs;
+    private final ItemStack fakeOutput;
 
     public MutagenesisRecipe(List<ItemStack> inputs, ItemStack output) {
         this.inputs = inputs;
-        this.outputs = Lists.newArrayList(output, inputs.get(0), inputs.get(1));
+        this.fakeOutput = output;
+        this.outputs = Lists.newArrayList(MutagenesisRecipesManager.getStackWithoutMeta(output), inputs.get(0), inputs.get(1));
     }
 
     @Override
@@ -30,7 +32,7 @@ public class MutagenesisRecipe implements IRecipeWrapper {
 
     @Override
     public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        int chance = MutagenesisRecipesManager.getChance(outputs.get(0));
+        int chance = MutagenesisRecipesManager.getChance(fakeOutput);
 
         if (chance > 0) {
             String chanceString = JEICompat.translateToLocalFormatted("gui.jei.category.mutagenesis.chance", chance);

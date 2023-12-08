@@ -14,22 +14,4 @@ public class MACreativeTabs {
             return new ItemStack(ItemCrafting.EXEMPLARY_GEAR.getItem(), 1, 0);
         }
     };
-    public static CreativeTabs CREATIVE_TAB_NUCLEAR = new CreativeTabs(MOD_ID + "_nuclear") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ItemCrafting.NUCLEAR_SEEDS.getItem(), 1, 0);
-        }
-    };
-    public static CreativeTabs CREATIVE_TAB_ALLOY = new CreativeTabs(MOD_ID + "_alloy") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ItemCrafting.ALLOY_SEEDS.getItem(), 1, 0);
-        }
-    };
-    public static CreativeTabs CREATIVE_TAB_ELECTRONIC = new CreativeTabs(MOD_ID + "_electronic") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ItemCrafting.ELECTRONIC_SEEDS.getItem(), 1, 0);
-        }
-    };
 }

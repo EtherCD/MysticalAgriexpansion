@@ -3,7 +3,14 @@ package com.ethercd.mysticalagriexpansion.block;
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
 import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockInferiumMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockInsaniumMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockIntermediumMutagenesisProcessor;
 import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockPrudentiumMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockSuperiumMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.block.mutagenesis.BlockSupremiumMutagenesisProcessor;
+import com.ethercd.mysticalagriexpansion.config.ModConfig;
+import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.utils.RegisteredObject;
 import net.minecraft.block.Block;
 
@@ -18,12 +25,23 @@ public class ModBlocks {
     }
 
     public static BlockMutagenesisProcessor blockInferniumMutagenesisProcessor = new BlockInferiumMutagenesisProcessor();
+    public static BlockMutagenesisProcessor blockPrudentiumMutagenesisProcessor = new BlockPrudentiumMutagenesisProcessor();
+    public static BlockMutagenesisProcessor blockIntermediumMutagenesisProcessor = new BlockIntermediumMutagenesisProcessor();
+    public static BlockMutagenesisProcessor blockSuperiumMutagenesisProcessor = new BlockSuperiumMutagenesisProcessor();
+    public static BlockMutagenesisProcessor blockSupremiumMutagenesisProcessor = new BlockSupremiumMutagenesisProcessor();
+    public static BlockMutagenesisProcessor blockInsaniumMutagenesisProcessor = new BlockInsaniumMutagenesisProcessor();
 
     public static void register() {
         ModRegistry registry = MysticalAgriexpansion.REGISTRY;
 
-        BlockGrowthAccelerator.init();
+        if (ModConfig.growthAcceleratorActive)
+            BlockGrowthAccelerator.init();
         registry.register(blockInferniumMutagenesisProcessor, "inferium_mutagenesis_processor");
+        registry.register(blockPrudentiumMutagenesisProcessor, "prudentium_mutagenesis_processor");
+        registry.register(blockIntermediumMutagenesisProcessor, "intermedium_mutagenesis_processor");
+        registry.register(blockSuperiumMutagenesisProcessor, "superium_mutagenesis_processor");
+        registry.register(blockSupremiumMutagenesisProcessor, "supremium_mutagenesis_processor");
+        if (ModConfig.integrationMAg && ModChecker.INSANIUM) registry.register(blockInsaniumMutagenesisProcessor, "insanium_mutagenesis_processor");
 
         for (RegisteredObject<Block> elem : BLOCKS) {
             registry.register(elem.getObject(), elem.getName(), true);

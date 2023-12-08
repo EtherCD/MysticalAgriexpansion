@@ -36,6 +36,24 @@ def create_model_item(name, prefix=""):
             f.write('{"parent": "item/generated","textures": {"layer0": "'+mod_id+':items/'+prefix+'/'+ name +'"}}')
         f.close()
 
+def create_m0_blockstate(name):
+    path=f"../src/main/resources/assets/{mod_id}/blockstates/"
+    with open(path+name+'.json', "w+") as f:
+        f.write('{"variants": {"facing=north": { "model": "'+ mod_id +':'+ name +'" },"facing=south": { "model": "'+ mod_id +':'+ name +'", "y": 180 },"facing=west":  { "model": "'+ mod_id +':'+ name +'", "y": 270 },"facing=east":  { "model": "'+ mod_id +':'+ name +'", "y": 90 }}}')
+        f.close()
+
+def create_m0_models(name):
+    path=f"../src/main/resources/assets/{mod_id}/models/block/"
+    with open(path+name+'.json', "w+") as f:
+        f.write('{"parent": "block/orientable","textures": {"top": "'+ mod_id +':blocks/'+ name +'_side","front": "'+ mod_id +':blocks/'+ name + '_front","side": "'+ mod_id +':blocks/'+ name +'_side"}}')        
+        f.close()
+    path=f"../src/main/resources/assets/{mod_id}/models/item/"
+    with open(path+name+'.json', "w+") as f:
+        f.write('{"parent": "'+ mod_id +':block/'+ name +'","display": {"gui": {"rotation": [ 30, 225, 0 ],"translation": [ 0, 0, 0],"scale":[ 0.625, 0.625, 0.625 ]},"ground": {"rotation": [ 0, 0, 0 ],"translation": [ 0, 3, 0],"scale":[ 0.25, 0.25, 0.25 ]},"fixed": {"rotation": [ 0, 0, 0 ],"translation": [ 0, 0, 0],"scale":[ 0.5, 0.5, 0.5 ]},"thirdperson_righthand": {"rotation": [ 75, 45, 0 ],"translation": [ 0, 2.5, 0],"scale": [ 0.375, 0.375, 0.375 ]},"firstperson_righthand": {"rotation": [ 0, 45, 0 ],"translation": [ 0, 0, 0 ],"scale": [ 0.40, 0.40, 0.40 ]},"firstperson_lefthand": {"rotation": [ 0, 225, 0 ],"translation": [ 0, 0, 0 ],"scale": [ 0.40, 0.40, 0.40 ]}}}')
+        f.close()
+    
+
+
 def remove_crop(name):
     paths=[
     f"../src/main/resources/assets/{mod_id}/blockstates/",

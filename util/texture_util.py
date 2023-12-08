@@ -28,3 +28,23 @@ def texture_rgba_translator(filename):
             image_hsv.save(f"./assets/{filename}.png") 
         except IOError: 
             pass
+
+def texture_bleach(filename):
+    with Image.open(f"./assets/{filename}.png") as image:
+        try:
+            alpha = image.getchannel('A')
+            image_hsv = image.convert('HSV')
+            image_hsv_data = image_hsv.getdata()
+
+            new_data = [
+                (pixel[0], 0, pixel[2])
+                for pixel in image_hsv_data
+            ]
+
+            desaturated_image = Image.new('HSV', image.size)
+            desaturated_image.putdata(new_data)
+            final_image = desaturated_image.convert('RGBA')
+            final_image.putalpha(alpha)
+            final_image.save(f"./assets/{filename}.png") 
+        except IOError:
+            pass

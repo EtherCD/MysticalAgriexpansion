@@ -17,7 +17,7 @@ public class MutagenesisRecipeMaker {
             for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet()) {
                 ItemStack input1 = entry.getKey();
                 ItemStack input2 = ent.getKey();
-                ItemStack output = MutagenesisRecipesManager.getStackWithoutMeta(ent.getValue());
+                ItemStack output = ent.getValue();
                 List<ItemStack> inputs = Lists.newArrayList(input1, input2);
                 MutagenesisRecipe recipe = new MutagenesisRecipe(inputs, output);
                 jeiRecipes.add(recipe);

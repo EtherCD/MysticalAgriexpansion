@@ -1,9 +1,11 @@
 package com.ethercd.mysticalagriexpansion.lib;
 
+import com.blakebr0.mysticalagriculture.blocks.BlockStorage;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockInferiumReprocessor;
 import com.blakebr0.mysticalagriculture.items.ItemCrafting;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -33,6 +35,13 @@ public class ModParts {
     public static ItemStack itemSupremiumFertCore = ItemCrafting.itemSupremiumFertCore;
     public static ItemStack itemTheoreticalWater = ItemCrafting.itemTheoreticalWater;
     public static BlockInferiumReprocessor blockInferiumSeedReprocessor = ModBlocks.INFERIUM_REPROCESSOR;
+    public static Block blockGrowthAccelerator = ModBlocks.blockGrowthAccelerator;
+    public static Block blockEssenceTier2 = ModBlocks.blockStorage.getBlockById(1);
+    public static Block blockEssenceTier3 = ModBlocks.blockStorage.getBlockById(2);
+    public static Block blockEssenceTier4 = ModBlocks.blockStorage.getBlockById(3);
+    public static Block blockEssenceTier5 = ModBlocks.blockStorage.getBlockById(4);
+    public static ItemStack blockEssenceTier6;
+
 
     public static ItemStack itemFertilizedEssence;
 
@@ -130,6 +139,11 @@ public class ModParts {
             try {
                 itemInsaniumEssence = OreDictionary.getOres("essenceInsanium", false).get(0);
             } catch(Throwable e){
+                e.printStackTrace();
+            }
+            try {
+                blockEssenceTier6 = OreDictionary.getOres("blockInsaniumEssence", false).get(0);
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         }

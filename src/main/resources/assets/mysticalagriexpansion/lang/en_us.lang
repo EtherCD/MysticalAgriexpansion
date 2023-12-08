@@ -179,7 +179,12 @@ item.mutagenesis_core.name=Mutagenesis Core
 item.insanium_watering_can.name=§5Insanium Watering Can
 
 # blocks
-tile.inferium_mutagenesis_processor.name=Inferium Mutagenesis Processor
+tile.inferium_mutagenesis_processor.name=§eInferium Mutagenesis Processor
+tile.prudentium_mutagenesis_processor.name=§aPrudentium Mutagenesis Processor
+tile.intermedium_mutagenesis_processor.name=§6Intermedium Mutagenesis Processor
+tile.superium_mutagenesis_processor.name=§bSuperium Mutagenesis Processor
+tile.supremium_mutagenesis_processor.name=§cSupremium Mutagenesis Processor
+tile.insanium_mutagenesis_processor.name=§5Insanium Mutagenesis Processor
 
 # Crops
 tile.prosperity_crop.name=Prosperity Crop
@@ -264,6 +269,8 @@ container.mutagenesis_processor.name=Mutagenesis Processor
 # Tooltips
 tooltip.growth_accelerator=Grows plants above it faster. Faster than usual
 tooltip.watering_can=Range:
+tooltip.mutagenesis_processor.creation=Time of process mutation %s sec.
+tooltip.mutagenesis_processor.chance=Chance multiplier %s.
 
 # Jei
 gui.jei.category.mutagenesis.chance=Chance R: %d%%

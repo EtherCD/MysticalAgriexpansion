@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.item;
 
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.ethercd.mysticalagriexpansion.MysticalAgriexpansion;
+import com.ethercd.mysticalagriexpansion.config.ModConfig;
 import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 import com.ethercd.mysticalagriexpansion.utils.RegisteredObject;
 import net.minecraft.item.Item;
@@ -23,7 +24,7 @@ public class ModItems {
 
         ItemCrafting.register();
 
-        if (ModChecker.INSANIUM) {
+        if (ModConfig.integrationMAg && ModChecker.INSANIUM) {
             itemInstaiumWateringCan.register();
         }
 

@@ -33,9 +33,9 @@ public class AlloyCrop {
         this.plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
         this.crop = (ModItem) new ModItem(getName() + "_essence")
-                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_ALLOY);
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB);
         this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier())
-                .setCreativeTab(MACreativeTabs.CREATIVE_TAB_ALLOY);
+                .setCreativeTab(MACreativeTabs.CREATIVE_TAB);
         if (this.enabled) {
             this.plant.setCrop(crop);
             this.plant.setSeed(seed);

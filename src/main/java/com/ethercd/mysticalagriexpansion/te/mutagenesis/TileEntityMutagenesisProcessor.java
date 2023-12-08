@@ -65,7 +65,7 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
                     && (output3.isEmpty() || StackHelper.canCombineStacks(output3, copyItemStack(input2)))) {
                 this.progress++;
                 if (this.progress >= this.getOperationTime()) {
-                    if (MutagenesisRecipesManager.getMutagenesisSuccess(recipeOutput)) {
+                    if (MutagenesisRecipesManager.getMutagenesisSuccess(recipeOutput, getChanceMultiplier())) {
                         if (output1.isEmpty()) {
                             this.setInventorySlotContents(2, recipeOutput.copy());
                         } else {
@@ -78,8 +78,6 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
                         output2.grow(1);
                     }
                     if (output3.isEmpty()) {
-                        ItemStack stack2 = input2.copy();
-                        stack2.setCount(1);
                         this.setInventorySlotContents(4, copyItemStack(input2));
                     } else {
                         output3.grow(1);
@@ -228,6 +226,7 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
     }
 
     public abstract int getOperationTime();
+    public abstract float getChanceMultiplier();
 
     public int getProgress() {
         return this.progress;
