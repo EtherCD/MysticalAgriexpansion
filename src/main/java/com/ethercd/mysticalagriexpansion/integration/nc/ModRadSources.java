@@ -6,8 +6,8 @@ import nc.radiation.RadSources;
 
 public class ModRadSources {
     public static void addNuclearCrop(double radiation, NuclearCrop nc) {
-        RadSources.put(radiation, nc.getPlant());
-        RadSources.put(radiation, nc.getSeed());
+        RadSources.put(radiation / 4D, nc.getPlant());
+        RadSources.put(radiation / 4D, nc.getSeed());
         RadSources.put(radiation / 9D, nc.getCrop());
     }
 

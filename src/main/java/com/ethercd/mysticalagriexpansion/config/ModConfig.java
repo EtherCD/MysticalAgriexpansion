@@ -53,6 +53,10 @@ public class ModConfig {
         integrationRadiantionNC = config.getBoolean("integration_radiation_nc", category, true, "Integration with Nuclear Craft Radiation");
 
         growthAcceleratorActive = config.getBoolean("growth_accelerators", category, true, "Growth Accelerator tiers");
+
+        if (config.hasChanged()) {
+            config.save();
+        }
     }
 
 }

@@ -36,10 +36,10 @@ public class ModParts {
     public static ItemStack itemTheoreticalWater = ItemCrafting.itemTheoreticalWater;
     public static BlockInferiumReprocessor blockInferiumSeedReprocessor = ModBlocks.INFERIUM_REPROCESSOR;
     public static Block blockGrowthAccelerator = ModBlocks.blockGrowthAccelerator;
-    public static Block blockEssenceTier2 = ModBlocks.blockStorage.getBlockById(1);
-    public static Block blockEssenceTier3 = ModBlocks.blockStorage.getBlockById(2);
-    public static Block blockEssenceTier4 = ModBlocks.blockStorage.getBlockById(3);
-    public static Block blockEssenceTier5 = ModBlocks.blockStorage.getBlockById(4);
+    public static ItemStack blockEssenceTier2;
+    public static ItemStack blockEssenceTier3;
+    public static ItemStack blockEssenceTier4;
+    public static ItemStack blockEssenceTier5;
     public static ItemStack blockEssenceTier6;
 
 
@@ -62,6 +62,14 @@ public class ModParts {
     public static ItemStack itemBerylliumIngot;
     public static ItemStack itemZirconiumIngot;
 
+    private static ItemStack getItemFromOre(String ore) {
+        try {
+            return OreDictionary.getOres(ore, false).get(0);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return ItemStack.EMPTY;
+    }
 
     public static void init() {
         itemFertilizedEssence = new ItemStack(ModItems.itemFertilizedEssence, 1, 0);
@@ -69,83 +77,40 @@ public class ModParts {
         ModMetaPart.init();
 
         if (ModChecker.GERMANIUM) {
-            try {
-                itemIUGermanium = OreDictionary.getOres("ingotGermanium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUGermanium = getItemFromOre("ingotGermanium");
         }
         if (ModChecker.SPINEL) {
-            try {
-                itemIUSpinel = OreDictionary.getOres("ingotSpinel", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUSpinel = getItemFromOre("ingotSpinel");
         }
         if (ModChecker.CHROMIUM) {
-            try {
-                itemIUChromium = OreDictionary.getOres("ingotChromium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUChromium = getItemFromOre("ingotChromium");
         }
         if (ModChecker.CARAVKY) {
-            try {
-                itemIUCaravky = OreDictionary.getOres("ingotCaravky", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUCaravky = getItemFromOre("ingotCaravky");
         }
         if (ModChecker.VANADIUM) {
-            try {
-                itemIUVanadium = OreDictionary.getOres("ingotVanadium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUVanadium = getItemFromOre("ingotVanadium");
         }
         if (ModChecker.MICHALOV) {
-            try {
-                itemIUMichalov = OreDictionary.getOres("ingotMichalovm", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemIUMichalov = getItemFromOre("ingotMichalovm");
         }
         if (ModChecker.BERYLLIUM) {
-            try {
-                itemBerylliumIngot = OreDictionary.getOres("ingotBeryllium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemBerylliumIngot = getItemFromOre("ingotBeryllium");
         }
         if (ModChecker.ZIRCONIUM) {
-            try {
-                itemZirconiumIngot = OreDictionary.getOres("ingotZirconium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
+            itemZirconiumIngot = getItemFromOre("ingotZirconium");
         }
 
+        blockEssenceTier2 = getItemFromOre("blockPrudentiumEssence");
+        blockEssenceTier3 = getItemFromOre("blockIntermediumEssence");
+        blockEssenceTier4 = getItemFromOre("blockSuperiumEssence");
+        blockEssenceTier5 = getItemFromOre("blockSupremiumEssence");
+
         if (ModChecker.INSANIUM) {
-            try {
-                itemInsaniumIngot = OreDictionary.getOres("ingotInsanium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
-            try {
-                itemInsaniumNugget = OreDictionary.getOres("nuggetInsanium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
-            try {
-                itemInsaniumEssence = OreDictionary.getOres("essenceInsanium", false).get(0);
-            } catch(Throwable e){
-                e.printStackTrace();
-            }
-            try {
-                blockEssenceTier6 = OreDictionary.getOres("blockInsaniumEssence", false).get(0);
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
+            itemInsaniumIngot = getItemFromOre("ingotInsanium");
+            itemInsaniumNugget = getItemFromOre("nuggetInsanium");
+            itemInsaniumEssence = getItemFromOre("essenceInsanium");
+            blockEssenceTier6 = getItemFromOre("blockInsaniumEssence");
         }
     }
 }
