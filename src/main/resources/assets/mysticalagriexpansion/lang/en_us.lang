@@ -1,7 +1,4 @@
-itemGroup.mysticalagriexpansion_electronic=MAE: Electronic Crops
-itemGroup.mysticalagriexpansion_nuclear=MAE: Nuclear Crops
-itemGroup.mysticalagriexpansion_alloy=MAE: Alloy Crops
-itemGroup.mysticalagriexpansion=Mystical Agriexpansion: General
+itemGroup.mysticalagriexpansion=Mystical Agriexpansion
 
 # Essence
 item.prosperity_essence.name=Prosperity Essence
@@ -12,7 +9,7 @@ item.germanium_essence.name=Germanium Essence
 item.vanadium_essence.name=Vanadium Essence
 item.chromium_essence.name=Chromium Essence
 item.michalov_essence.name=Michalov Essence
-item.thorium_essence.name=Thorium Essence
+item.thorium_essence.name=Thorium Gem Essence
 item.caravky_essence.name=Caravky Essence
 item.proton_essence.name=Proton Essence
 item.spinel_essence.name=Spinel Essence
@@ -225,6 +222,7 @@ tile.thermoconducting_crop.name=Thermoconducting Alloy Crop
 tile.magnesium_diboride_crop.name=Magnesium Diboride Crop
 tile.manganese_dioxide_crop.name=Manganese Dioxide Crop
 tile.silicon_carbide_crop.name=Silicon Carbide Crop
+tile.ferroboron_crop.name=Ferroboron Alloy Crop
 tile.tin_silver_crop.name=Tin Silver Alloy Crop
 tile.shibuichi_crop.name=Shibuichi Alloy Crop
 tile.hard_carbon_crop.name=Hard Carbon Crop

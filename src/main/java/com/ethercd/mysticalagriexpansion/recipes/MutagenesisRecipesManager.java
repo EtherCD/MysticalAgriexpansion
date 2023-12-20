@@ -15,8 +15,8 @@ import java.util.Random;
  */
 @SuppressWarnings({"unused"})
 public class MutagenesisRecipesManager {
-    private static final Table<ItemStack, ItemStack, ItemStack> recipesList = HashBasedTable.create();
-    private static final Map<ItemStack, Integer> chanceList = Maps.newHashMap();
+    private static final Table<ItemStack, ItemStack, MutagenesisResult> recipesList = HashBasedTable.create();
+    private static final Map<MutagenesisResult, Integer> chanceList = Maps.newHashMap();
     private static final Random random = new Random();
     private static int lastRecipeIndex = 1;
 
@@ -30,11 +30,12 @@ public class MutagenesisRecipesManager {
     public static void addRecipe(Item input1, Item input2, Item output, int chance) {
         ItemStack input1Stack = new ItemStack(input1, 1);
         ItemStack input2Stack = new ItemStack(input2, 1);
-        ItemStack outputStack = new ItemStack(output, 1, lastRecipeIndex);
-        if (getResult(input1Stack, input2Stack) != ItemStack.EMPTY) return;
-        recipesList.put(input1Stack, input2Stack, outputStack);
-        chanceList.put(outputStack, chance);
+        ItemStack outputStack = new ItemStack(output, 1);
+        if (getResult(input1Stack, input2Stack).getItem() != ItemStack.EMPTY) return;
+        MutagenesisResult recipeResult = new MutagenesisResult(outputStack, lastRecipeIndex);
         lastRecipeIndex++;
+        recipesList.put(input1Stack, input2Stack, recipeResult);
+        chanceList.put(recipeResult, chance);
     }
 
     /**
@@ -48,9 +49,10 @@ public class MutagenesisRecipesManager {
      * @param chance Chance of successful mutation
      */
     public static void addRecipe(ItemStack input1, ItemStack input2, ItemStack output, int chance) {
-        if (getResult(input1, input2) != ItemStack.EMPTY) return;
-        recipesList.put(input1, input2, output);
-        chanceList.put(output, chance);
+        if (getResult(input1, input2).getItem() != ItemStack.EMPTY) return;
+        recipesList.put(input1, input2, new MutagenesisResult(output, lastRecipeIndex));
+        chanceList.put(new MutagenesisResult(output, lastRecipeIndex), chance);
+        lastRecipeIndex++;
     }
 
     /**
@@ -59,22 +61,22 @@ public class MutagenesisRecipesManager {
      * @param input2 Recipe inputs second slot
      * @return Result or ItemStack.EMPTY
      */
-    public static ItemStack getResult(ItemStack input1, ItemStack input2) {
+    public static MutagenesisResult getResult(ItemStack input1, ItemStack input2) {
         input1 = input1.copy(); input1.copy();
         input2 = input2.copy(); input2.copy();
 
-        for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipesList.columnMap().entrySet()) {
-            if (StackHelper.canCombineStacks(input1, entry.getKey()))
-                for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet())
-                    if (StackHelper.canCombineStacks(input2, ent.getKey()))
-                        return getStackWithoutMeta(ent.getValue());
-            if (StackHelper.canCombineStacks(input2, entry.getKey()))
-                for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet())
-                    if (StackHelper.canCombineStacks(input1, ent.getKey()))
-                        return getStackWithoutMeta(ent.getValue());
+        for (Map.Entry<ItemStack, Map<ItemStack, MutagenesisResult>> entry : recipesList.columnMap().entrySet()) {
+            if (input1.isItemEqual(entry.getKey()))
+                for (Map.Entry<ItemStack, MutagenesisResult> ent : entry.getValue().entrySet())
+                    if (input2.isItemEqual(ent.getKey()))
+                        return ent.getValue();
+            if (input2.isItemEqual(entry.getKey()))
+                for (Map.Entry<ItemStack, MutagenesisResult> ent : entry.getValue().entrySet())
+                    if (input1.isItemEqual(ent.getKey()))
+                        return ent.getValue();
         }
 
-        return ItemStack.EMPTY;
+        return new MutagenesisResult(ItemStack.EMPTY, 99);
     }
 
     /**
@@ -88,14 +90,13 @@ public class MutagenesisRecipesManager {
 
     /**
      * Randomizes mutation success
-     * @param stack Result of recipe stack
+     * @param result Result of recipe stack
      * @return Successful or not mutation
      */
-    public static boolean getMutagenesisSuccess(ItemStack stack, float chanceMultiplier) {
-        for (Map.Entry<ItemStack, Integer> entry : chanceList.entrySet()) {
-            if (StackHelper.canCombineStacks(stack, entry.getKey())) {
-                return random.nextInt(100) < 100 - (entry.getValue() * chanceMultiplier);
-            }
+    public static boolean getMutagenesisSuccess(MutagenesisResult result, float chanceMultiplier) {
+        for (Map.Entry<MutagenesisResult, Integer> entry : chanceList.entrySet()) {
+            if (entry.getKey().isCompare(result))
+                return random.nextInt(100) < 100 - Math.round(entry.getValue() * chanceMultiplier);
         }
         return false;
     }
@@ -106,8 +107,8 @@ public class MutagenesisRecipesManager {
      * @return Int chance of mutation
      */
     public static int getChance(ItemStack stack) {
-        for (Map.Entry<ItemStack, Integer> entry : chanceList.entrySet()) {
-            if (StackHelper.canCombineStacks(stack, entry.getKey()))
+        for (Map.Entry<MutagenesisResult, Integer> entry : chanceList.entrySet()) {
+            if (StackHelper.canCombineStacks(stack, entry.getKey().getItem()))
                 return entry.getValue();
         }
         return 0;
@@ -117,7 +118,7 @@ public class MutagenesisRecipesManager {
      * Only for JEI Compat
      * @return All recipes
      */
-    public static Table<ItemStack, ItemStack, ItemStack> getRecipesList() {
+    public static Table<ItemStack, ItemStack, MutagenesisResult> getRecipesList() {
         return recipesList;
     }
 }

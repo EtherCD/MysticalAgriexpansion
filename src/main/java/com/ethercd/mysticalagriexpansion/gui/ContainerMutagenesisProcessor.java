@@ -62,6 +62,12 @@ public class ContainerMutagenesisProcessor extends Container {
 
             int containerSlots = inventorySlots.size() - player.inventory.mainInventory.size();
 
+            if (index >= 2 && index <= 4) {
+                if (!this.mergeItemStack(itemstack1, index+1, 39, true)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
             if (index < containerSlots) {
                 if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;

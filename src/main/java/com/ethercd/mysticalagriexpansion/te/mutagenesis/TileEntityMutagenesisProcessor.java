@@ -4,6 +4,7 @@ package com.ethercd.mysticalagriexpansion.te.mutagenesis;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VanillaPacketDispatcher;
 import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
+import com.ethercd.mysticalagriexpansion.recipes.MutagenesisResult;
 import com.ethercd.mysticalagriexpansion.utils.TileEntityUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -57,19 +58,19 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
         ItemStack output3 = this.getStackInSlot(4);
 
         if (!input1.isEmpty() && !input2.isEmpty()) {
-            ItemStack recipeOutput = MutagenesisRecipesManager.getResult(input1, input2);
+            MutagenesisResult recipeOutput = MutagenesisRecipesManager.getResult(input1, input2);
 
-            if (!recipeOutput.isEmpty()
-                    && (output1.isEmpty() || StackHelper.canCombineStacks(output1, recipeOutput))
+            if (!recipeOutput.getItem().isEmpty()
+                    && (output1.isEmpty() || StackHelper.canCombineStacks(output1, recipeOutput.getItem()))
                     && (output2.isEmpty() || StackHelper.canCombineStacks(output2, copyItemStack(input1)))
                     && (output3.isEmpty() || StackHelper.canCombineStacks(output3, copyItemStack(input2)))) {
                 this.progress++;
                 if (this.progress >= this.getOperationTime()) {
                     if (MutagenesisRecipesManager.getMutagenesisSuccess(recipeOutput, getChanceMultiplier())) {
                         if (output1.isEmpty()) {
-                            this.setInventorySlotContents(2, recipeOutput.copy());
+                            this.setInventorySlotContents(2, recipeOutput.getItem().copy());
                         } else {
-                            output1.grow(recipeOutput.getCount());
+                            output1.grow(recipeOutput.getItem().getCount());
                         }
                     }
                     if (output2.isEmpty()) {
