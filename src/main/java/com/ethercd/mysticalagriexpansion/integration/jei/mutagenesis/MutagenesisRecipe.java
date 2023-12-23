@@ -2,6 +2,7 @@ package com.ethercd.mysticalagriexpansion.integration.jei.mutagenesis;
 
 import com.ethercd.mysticalagriexpansion.integration.jei.JEICompat;
 import com.ethercd.mysticalagriexpansion.recipes.MutagenesisRecipesManager;
+import com.ethercd.mysticalagriexpansion.recipes.MutagenesisResult;
 import com.google.common.collect.Lists;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -16,12 +17,12 @@ import java.util.List;
 public class MutagenesisRecipe implements IRecipeWrapper {
     private final List<ItemStack> inputs;
     private final List<ItemStack> outputs;
-    private final ItemStack fakeOutput;
+    private final MutagenesisResult fakeOutput;
 
-    public MutagenesisRecipe(List<ItemStack> inputs, ItemStack output) {
+    public MutagenesisRecipe(List<ItemStack> inputs, MutagenesisResult output) {
         this.inputs = inputs;
         this.fakeOutput = output;
-        this.outputs = Lists.newArrayList(MutagenesisRecipesManager.getStackWithoutMeta(output), inputs.get(0), inputs.get(1));
+        this.outputs = Lists.newArrayList(MutagenesisRecipesManager.getStackWithoutMeta(output.getItem()), inputs.get(0), inputs.get(1));
     }
 
     @Override
@@ -32,7 +33,7 @@ public class MutagenesisRecipe implements IRecipeWrapper {
 
     @Override
     public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        int chance = MutagenesisRecipesManager.getChance(fakeOutput);
+        int chance = fakeOutput.getChance();
 
         if (chance > 0) {
             String chanceString = JEICompat.translateToLocalFormatted("gui.jei.category.mutagenesis.chance", chance);

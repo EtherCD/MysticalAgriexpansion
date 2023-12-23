@@ -20,7 +20,7 @@ public class MutagenesisRecipeMaker {
                 ItemStack input2 = ent.getKey();
                 MutagenesisResult output = ent.getValue();
                 List<ItemStack> inputs = Lists.newArrayList(input1, input2);
-                MutagenesisRecipe recipe = new MutagenesisRecipe(inputs, output.getItem());
+                MutagenesisRecipe recipe = new MutagenesisRecipe(inputs, output);
                 jeiRecipes.add(recipe);
             }
         }

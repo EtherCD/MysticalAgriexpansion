@@ -170,6 +170,7 @@ item.tier_5_alloy_seeds.name=§cУровень 5 Создание спалавн
 item.tier_6_electronic_seeds.name=§5Уровень 6 Создание электронного семени
 item.tier_6_nuclear_seeds.name=§5Уровень 6 Создание ядерного семени
 item.tier_6_alloy_seeds.name=§5Уровень 6 Создание спалавного семени
+item.mutagenesis_core.name=Ядро мутагенезиса
 
 # Watering Cans
 item.insanium_watering_can.name=§5Инсаниумная лейка

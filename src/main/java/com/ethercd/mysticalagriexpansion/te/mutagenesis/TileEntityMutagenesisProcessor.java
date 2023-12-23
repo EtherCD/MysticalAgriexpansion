@@ -66,7 +66,7 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
                     && (output3.isEmpty() || StackHelper.canCombineStacks(output3, copyItemStack(input2)))) {
                 this.progress++;
                 if (this.progress >= this.getOperationTime()) {
-                    if (MutagenesisRecipesManager.getMutagenesisSuccess(recipeOutput, getChanceMultiplier())) {
+                    if (recipeOutput.getSuccess(getChanceMultiplier())) {
                         if (output1.isEmpty()) {
                             this.setInventorySlotContents(2, recipeOutput.getItem().copy());
                         } else {
