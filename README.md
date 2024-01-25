@@ -6,7 +6,7 @@
     <a href="https://www.curseforge.com/minecraft/mc-mods/mystical-agriexpansion">CurseForge</a>
     <hr>
     <div>
-       <img src="./github/screenshot.png" alt="screenshot lol">
+       <img src="./github/screenshot-2.png" alt="screenshot lol">
    </div>
 </div>
 
